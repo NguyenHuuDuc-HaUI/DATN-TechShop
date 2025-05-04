@@ -1,0 +1,122 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    position: relative;
+}
+
+.original-size{
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.order-container{
+
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.order-title {
+    font-family: "Dancing Script", cursive;
+    position: absolute;
+    top: 20px; 
+    left: 110px; 
+    color: black;
+    font-size: 36px;
+  
+}
+.order-nd1 {  
+    position: absolute;
+    top: 150px; 
+    left: 220px; 
+    font-size: 16px;
+    
+}
+.order-nd2 { 
+    position: absolute;
+    top: 170px; 
+    left: 30px; 
+    font-size: 16px;
+    
+}
+.order-nd3{  
+    position: absolute;
+    top: 200px; 
+    left: 30px; 
+    font-size: 16px;
+    
+}
+.table-before {
+    position: absolute;
+    top: 200px; 
+    left: 30px; 
+    margin-top: 30px; 
+    border-collapse: collapse; 
+    width: 85%; 
+}
+.table-before td {
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #ddd; 
+}
+.table-after {
+    position: absolute;
+    top: 260px; 
+    left: 30px; 
+    margin-top: 30px;
+    border-collapse: collapse; 
+    width: 85%; 
+}
+
+ .table-after td {
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid #ddd; 
+}
+.table-after td:first-child {
+    width: 79%; 
+}
+.order-nd4{  
+    position: absolute;
+    top: 380px; 
+    left: 30px; 
+    font-size: 16px;
+    color: #4AB0BA;
+    font-weight: 600;
+    
+}
+.order-nd5{  
+    position: absolute;
+    top: 405px; 
+    left: 30px; 
+    font-size: 16px;
+    
+}
+.order-nd6{  
+    position: absolute;
+    top: 425px; 
+    left: 30px; 
+    font-size: 16px;
+    
+}
+.order-nd7{  
+    position: absolute;
+    top: 445px; 
+    left: 30px; 
+    font-size: 16px;
+    
+}
+.order-nd8{  
+    position: absolute;
+    top: 465px; 
+    left: 30px; 
+    font-size: 16px;
+    
+}
+

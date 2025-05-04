@@ -1,0 +1,132 @@
+﻿@model MEGATECH.Models.EF.NhanVien
+@{
+    ViewBag.Title = "Thông tin chi tiết nhân viên";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Chi tiết thông tin nhân viên: @Model.FullName</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "NhanVien")">Danh sách nhân viên</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Xem chi tiết</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="mb-3" style="font-weight: bold;">THÔNG TIN CHUNG</label>
+                                    <div class="form-group form-group-default">
+                                        <label>Họ tên nhân viên</label>
+                                        <span class="form-control">@Model.FullName</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Ngày sinh</label>
+                                        <span class="form-control">@Model.NgaySinh.ToString("dd'/'MM'/'yyyy")</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Căn cước công dân 9 số</label>
+                                        <span class="form-control">@Model.CCCD</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Giới tính</label>
+                                        <span class="form-control">@(Model.GioiTinh == true ? "Nam" : "Nữ")</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Số điện thoại</label>
+                                        <span class="form-control">@Model.SoDienThoai</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Email</label>
+                                        <span class="form-control">@Model.Email</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Chức vụ</label>
+                                        @if (Model.ID_ChucVu == null)
+                                        {
+                                            <span class="form-control text-danger">Chưa thiết lập chức vụ cho người dùng này</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="form-control">@Model.ChucVu.TenChucVu</span>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default text-center">
+                                        <label>Hình ảnh đại diện</label><br />
+                                        @if (!string.IsNullOrEmpty(Model.Image))
+                                        {
+                                            <img src="@Model.Image" alt="Hình ảnh đại diện" width="200" class="img-fluid">
+                                        }
+                                        else
+                                        {
+                                            <span class="form-control">Chưa thêm hình ảnh cho nhân viên này</span>
+                                        }
+                                    </div>
+                                    <label class="mb-3" style="font-weight: bold;">TÀI KHOẢN</label>
+                                    <div class="form-group form-group-default">
+                                        <label>Tên tài khoản</label>
+                                        <span class="form-control">@Model.TenDangNhap</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Mật khẩu tài khoản</label>
+                                        <span class="form-control">@Model.MatKhau</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Tên hiển thị tài khoản</label>
+                                        <span class="form-control">@Model.TenHienThi</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Tình trạng hoạt động tài khoản</label>
+                                        @if (Model.IsActiveAccount == true)
+                                        {
+                                            <span class="form-control"><i class="fas fa-circle text-success" style="font-size: 10px;"></i> Đang hoạt động</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="form-control"><i class="fas fa-circle text-danger" style="font-size: 10px;"></i> Không hoạt động</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="/admin/nhanvien/edit/@Model.ID" class="btn btn-primary">Vào trang chỉnh sửa</a>
+                            <a href="@Url.Action("Index", "NhanVien")" class="btn btn-danger">Quay lại</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

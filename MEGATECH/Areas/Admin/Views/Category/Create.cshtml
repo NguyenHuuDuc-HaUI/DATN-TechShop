@@ -1,0 +1,144 @@
+﻿@model MEGATECH.Models.EF.Category
+
+@{
+    ViewBag.Title = "Thêm mới danh mục Menu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Thêm mới danh mục Menu</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Category")">Danh sách Menu</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Thêm mới</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <!-- your steps content here -->
+                            <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Tên danh mục Menu <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Nhập tên danh mục Menu" })
+                                            @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Alias <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.Alias, new { @class = "form-control", @placeholder = "Nhập Alias" })
+                                            @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group form-group-default">
+                                            <label>
+                                                <input id="enableLinkCheckbox" type="checkbox" />
+                                                Menu này có link không?
+                                            </label>
+                                            <div id="linkTextBox" class="form-group form-group-default mt-2">
+                                                @Html.TextBoxFor(x => x.Link, new { @class = "form-control", @placeholder = "Không có", @disabled = "disabled" })
+                                                @Html.ValidationMessageFor(x => x.Link, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Vị trí</label>
+                                            @if (ViewBag.CategoryCount == 0)
+                                            {
+                                                @Html.TextBoxFor(x => x.Position, new { @class = "form-control", @placeholder = "Vị trí đầu tiên", @value = "0", @readonly = "readonly" })
+                                                @Html.ValidationMessageFor(x => x.Position, null, new { @class = "text-danger" })
+                                                <span class="text-warning">Vì chưa có Menu nào nên mặc định sẽ là vị trí đầu tiên</span>
+                                            }
+                                            else
+                                            {
+                                                @Html.TextBoxFor(x => x.Position, new { @class = "form-control", @placeholder = "Tự động" })
+                                                @Html.ValidationMessageFor(x => x.Position, null, new { @class = "text-danger" })
+                                                <span class="text-warning">Đã có @ViewBag.CategoryCount Menu được tạo</span>
+                                            }
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Title</label>
+                                            @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "Nhập Seo Title" })
+                                            @Html.ValidationMessageFor(x => x.SeoTitle, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Description</label>
+                                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control", @placeholder = "Nhập Seo Description" })
+                                            @Html.ValidationMessageFor(x => x.SeoDescription, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Keywords</label>
+                                            @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control", @placeholder = "Nhập Seo Keywords" })
+                                            @Html.ValidationMessageFor(x => x.SeoKeywords, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <div class="custom-control custom-checkbox">
+                                            @Html.CheckBoxFor(x => x.IsActive, new { @class = "custom-control-input", @id = "customCheckbox" })
+                                            <label for="customCheckbox" class="custom-control-label text-info font-weight-bold">Hiển thị Menu này trên trang chủ không?</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-success">Thêm mới</button>
+                                    <a href="@Url.Action("Index", "Category")" class="btn btn-danger">Quay lại</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->
+@section scripts{
+    <script src="~/Scripts/jsConvert.js"></script>
+
+    <script>
+        $(function () {
+            $('#enableLinkCheckbox').change(function () {
+                var linkTextbox = $('#Link');
+                if (this.checked) {
+                    linkTextbox.prop('disabled', false);
+                    linkTextbox.attr('placeholder', 'Nhập Link');
+                } else {
+                    linkTextbox.prop('disabled', true);
+                    linkTextbox.attr('placeholder', 'Không có');
+                }
+            });
+        });
+    </script>
+}

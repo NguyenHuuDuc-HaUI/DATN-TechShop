@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutLogin.cshtml";
+
+
+}
+
+<div class="card-body login-card-body">
+    <p class="login-box-msg">Đăng nhập vào trang quản trị viên</p>
+    <form role="form" method="post">
+        <fieldset>
+            <div class="form-group form-group-default">
+                <label>Tên tài khoản</label>
+                <input class="form-control" placeholder="Tên đăng nhập" name="username" type="text" autofocus />
+            </div>
+            <div class="form-group form-group-default">
+                <label>Mật khẩu</label>
+                <input class="form-control" placeholder="Mật khẩu" name="password" type="password" value="" />
+            </div>
+            @*<div class="form-group form-action-d-flex mb-3">
+                <div class="col-12 d-flex justify-content-between">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="rememberme">
+                        <label class="custom-control-label m-0" for="rememberme">Nhớ tài khoản</label>
+                    </div>
+                    <div>
+                        <label>
+                            <a href="#" class="link float-right">Quên mật khẩu?</a>
+                        </label>
+                    </div>
+                </div>
+
+            </div>*@
+            <div class="form-group form-group-default">
+                <p class="text-danger">@TempData["error"]</p>
+            </div>
+            <!-- /.col -->
+            <div class="col-12">
+                <button id="btnDangNhap" type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+            </div>
+            <!-- /.col -->
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,267 @@
+﻿
+@{
+    ViewBag.Title = "Kết quả thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var thanhtien = decimal.Zero;
+    var TongTien = decimal.Zero;
+
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .invoice-container {
+        width: 800px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #000;
+    }
+
+    .header-invoice {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .header-invoice h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header-invoice p {
+            margin: 5px 0;
+        }
+
+    .section {
+        margin-bottom: 20px;
+    }
+
+        .section h4 {
+            background-color: #3498db;
+            color: #fff;
+            padding: 5px;
+            margin: 0;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .section table, .section th, .section td {
+            border: 1px solid #000;
+        }
+
+        .section th, .section td {
+            padding: 10px;
+            text-align: left;
+        }
+
+    .no-border-rows td {
+        border-top: none;
+        border-bottom: none;
+    }
+
+    .products-table th, .products-table td {
+        text-align: center;
+    }
+
+    .products-table th {
+        background-color: #f2f2f2;
+    }
+
+    #btnSendInvoice:hover {
+        cursor: pointer;
+    }
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="active"><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>Thanh toán</a></li>
+                </ul>
+            </div>
+
+            <!-- Sidebar -->
+            <!-- Main Content -->
+            <div class="row">
+
+                <div class="col-md-12 text-center">
+                    <h2 class="">THANH TOÁN</h2>
+                    @if (ViewBag.ThanhToanThanhCong != null)
+                    {
+                        <p>Bạn đã thanh toán thành công với @ViewBag.ThanhToanThanhCong</p>
+                        <p>Mã hoá đơn của bạn là: <span class="text-warning">@ViewBag.MaVanDon</span></p>
+                    }
+                    <p>@ViewBag.InnerText</p>
+                    <div class="section text-center">
+                        <button id="btnSendInvoice" class="btn btn-primary">Xuất hoá đơn đến Email</button>
+                    </div>
+                    <p>Dưới đây là hoá đơn của bạn</p>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="invoice-container">
+                        <div class="header-invoice">
+                            <h1 class="mb-3" style="font-weight: bold;">HOÁ ĐƠN BÁN HÀNG</h1>
+                            <h6><i>Ngày</i> @ViewBag.OrderDate <i>Tháng</i> @ViewBag.OrderMonth <i>Năm</i> @ViewBag.OrderYear</h6>
+                            <h6>Số hóa đơn: <span style="color: #45B0E1; font-weight: bold;">@ViewBag.MaVanDon</span></h6>
+                        </div>
+                        <div class="section">
+                            <h4>CỬA HÀNG ĐỒ DÙNG CÔNG NGHỆ HOÀNG HÀ</h4>
+                            <table class="no-border-rows">
+                                <tr>
+                                    <td>Địa chỉ: TP. Hà Nội</td>
+                                </tr>
+                                <tr>
+                                    <td>Số điện thoại: 0933 428 095</td>
+                                </tr>
+                                <tr>
+                                    <td>Website: <a href="https://hoanghamobile.com">https://hoanghamobile.com</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Số tài khoản: 099100000933</td>
+                                </tr>
+                                <tr>
+                                    <td>Ngân hàng: TMCP Ngoại thương Việt Nam – Chi nhánh Hà Nội</td>
+                                </tr>
+                            </table>
+                            <h4>THÔNG TIN KHÁCH HÀNG</h4>
+                            <table class="no-border-rows">
+                                <tr>
+                                    <td>Họ tên khách hàng: @ViewBag.CustomerName</td>
+                                </tr>
+                                <tr>
+                                    <td>CMND/CCCD: @ViewBag.CCCD</td>
+                                </tr>
+                                <tr>
+                                    <td>Địa chỉ giao hàng: @ViewBag.Address</td>
+                                </tr>
+                                <tr>
+                                    <td>Số điện thoại: @ViewBag.Phone</td>
+                                </tr>
+                                <tr>
+                                    <td>Hình thức thanh toán: @ViewBag.TypePayment</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="section">
+                            <table class="products-table">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:center; width: 40px;">
+                                            STT
+                                        </th>
+                                        <th style="text-align:center;width: 150px;">
+                                            Tên sản phẩm
+                                        </th>
+                                        <th style="text-align:center;width: 80px;">
+                                            Số lượng
+                                        </th>
+                                        <th scope="col"
+                                            style="text-align:center;">
+                                            Đơn giá
+                                        </th>
+                                        <th scope="col"
+                                            style="text-align:center;">
+                                            Thành tiền
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (ViewBag.OrderDetails != null)
+                                    {
+                                        var orderDetails = ViewBag.OrderDetails as List<MEGATECH.Models.EF.ChiTietHoaDon>;
+                                        int stt = 1;
+
+                                        foreach (var item in orderDetails)
+                                        {
+                                            <tr>
+                                                <td style="text-align: center; width: 40px;">@stt</td>
+                                                <td style="text-align: center; width: 150px;">@item.Product.Title</td>
+                                                <td style="text-align: center; width: 80px;">@item.SoLuong</td>
+                                                <td style="text-align: center;">@MEGATECH.Common.Common.FormatNumber(item.GiaBan, 0) VNĐ</td>
+                                                <td style="text-align: center;">@MEGATECH.Common.Common.FormatNumber(item.GiaBan * item.SoLuong, 0) VNĐ</td>
+                                            </tr>
+                                            thanhtien += item.GiaBan * item.SoLuong;
+                                            stt++;
+                                        }
+                                        TongTien = thanhtien;
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div style="text-align: right; font-weight: bold;">Tổng tiền hàng</div>
+                                        </td>
+                                        <td><b>@MEGATECH.Common.Common.FormatNumber(thanhtien, 0) VNĐ</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div style="text-align: right; font-weight: bold;">Tổng cộng tiền thanh toán</div>
+                                        </td>
+                                        <td><b>@MEGATECH.Common.Common.FormatNumber(TongTien, 0) VNĐ</b></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <table style="width: 100%;">
+                            <tr style="text-align: center;">
+                                <td><b>Khách hàng</b></td>
+                                <td><b>Người bán hàng</b></td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <td><i>(Ký, họ tên)</i></td>
+                                <td><i>(Ký, họ tên)</i></td>
+                            </tr>
+                            <tr style="text-align: center;">
+                                <td style="padding-top: 20px; padding-bottom: 20px;"><i>@ViewBag.CustomerName</i></td>
+                                <td style="padding-top: 20px; padding-bottom: 20px;"><i>Hoang Ha Store</i></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <hr />
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Content/assets/js/categories_custom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#btnSendInvoice').click(function () {
+                var orderCode = '@ViewBag.MaVanDon';
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("XuatHoaDon", "ShoppingCart")',
+                    data: { orderCode: orderCode },
+                    success: function (response) {
+                        if (response.success) {
+                            alert(response.message);
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function () {
+                        alert("Lỗi khi gửi hoá đơn.");
+                    }
+                });
+            });
+        });
+    </script>
+}

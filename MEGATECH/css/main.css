@@ -1,0 +1,45 @@
+
+.carousel-item img {
+  margin: 0 auto; 
+  display: block;
+  max-width: 100%;
+}
+
+.carousel-inner{
+    margin-top: 20px;
+}
+  
+  .carousel-item img {
+    object-fit: cover; 
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-image: none; 
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+  }
+  .carousel-button {
+      position: absolute;
+      left: 280px;
+      bottom: 80px; 
+  }
+.carousel-button-slider2
+{
+  position: absolute;
+  left: 280px;
+  bottom: 150px; 
+}
+.carousel-button-slider3
+{
+  position: absolute;
+  left: 280px;
+  bottom: 80px; 
+}
+  
+  
+
+  

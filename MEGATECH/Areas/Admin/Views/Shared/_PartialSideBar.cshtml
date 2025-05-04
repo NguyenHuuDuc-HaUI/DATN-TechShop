@@ -1,0 +1,159 @@
+﻿
+<style>
+    i {
+        font-size: 20px;
+    }
+</style>
+@{
+    var user = (MEGATECH.Models.EF.NhanVien)HttpContext.Current.Session["user"];
+}
+
+<div class="sidebar">
+    <div class="sidebar-background"></div>
+    <div class="sidebar-wrapper scrollbar-inner">
+        <div class="sidebar-content">
+            <div class="user">
+                <div class="avatar-sm float-left mr-2">
+                    @if (user.Image != null)
+                    {
+                        <img src="@user.Image" class="avatar-img rounded-circle">
+
+                    }
+                    else
+                    {
+                        <img src="~/Content/clients/dist/img/avatar5.png" class="avatar-img rounded-circle">
+                    }
+                </div>
+                <div class="info">
+                    <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+                        <span>
+                            @user.TenHienThi
+                            <span class="user-level">Chức vụ: @user.ChucVu.TenChucVu</span>
+                            <span class="caret"></span>
+                        </span>
+                    </a>
+                    <div class="clearfix"></div>
+                    @if (user != null)
+                    {
+                        <div class="collapse in" id="collapseExample">
+                            <ul class="nav">
+                                <li>
+                                    <a href="/admin/NhanVien/detail/@user.ID">
+                                        <span class="link-collapse">Hồ sơ của tôi</span>
+                                    </a>
+                                </li>
+                                @if (user.ChucVu.TenChucVu == "Quản lý")
+                                {
+                                    <li>
+                                        <a href="/admin/NhanVien/edit/@user.ID">
+                                            <span class="link-collapse">Chỉnh sửa hồ sơ</span>
+                                        </a>
+                                    </li>
+                                }
+
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </div>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Home")">
+                        <i class="fa-solid fa-house"></i>
+                        <p>Trang chủ</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/" name="trangbanhang">
+                        <i class="fa-solid fa-globe-asia"></i>
+                        <p>Trang bán hàng</p>
+                    </a>
+                </li>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Quản lý</h4>
+                </li>
+                @if (user.ChucVu.TenChucVu == "Quản lý")
+                {
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "NhanVien")">
+                            <i class="fas fa-address-book"></i>
+                            <p>Nhân viên</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "ChucVu")">
+                            <i class="fas fa-user-tie"></i>
+                            <p>Chức vụ & Phân quyền</p>
+                        </a>
+                    </li>
+                }
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Order")">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <p>Đơn hàng</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.Action("KhachHang", "Order")">
+                        <i class="fa-solid fa-address-book"></i>
+                        <p>Khách hàng</p>
+                    </a>
+                </li>
+                @if (user.ChucVu.TenChucVu == "Quản lý")
+                {
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Supplier")">
+                            <i class="fa-solid fa-parachute-box"></i>
+                            <p>Nhà cung cấp</p>
+                        </a>
+                    </li>
+                }
+                @if (user.ChucVu.TenChucVu == "Quản lý")
+                {
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "ProductCategory")">
+                            <i class="fa-solid fa-boxes"></i>
+                            <p>Loại sản phẩm</p>
+                        </a>
+                    </li>
+                }
+
+                <li class="nav-item">
+                    <a href="@Url.Action("Index", "Products")">
+                        <i class="fa-solid fa-box"></i>
+                        <p>Sản phẩm</p>
+                    </a>
+                </li>
+                @if (user.ChucVu.TenChucVu == "Quản lý" || user.ChucVu.TenChucVu == "Kế toán")
+                {
+                    <li class="nav-item">
+                        <a href="@Url.Action("Index", "Statistical")">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <p>Thống kê</p>
+                        </a>
+                    </li>
+                }
+
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Hệ thống</h4>
+                </li>
+              
+
+                <li class="nav-item">
+                    <a href="@Url.Action("Logout", "Home")" class="nav-link">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <p>Đăng xuất</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+

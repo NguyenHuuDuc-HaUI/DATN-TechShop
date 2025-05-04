@@ -1,0 +1,106 @@
+﻿@model MEGATECH.Models.OrderViewModel
+
+<style>
+    input, select {
+        color: black; /* Đặt màu mặc định cho chữ */
+    }
+
+        input:valid {
+            color: black; /* Đặt màu đen khi dữ liệu hợp lệ */
+        }
+
+        input:invalid {
+            color: red; /* Đặt màu đỏ khi dữ liệu không hợp lệ */
+        }
+</style>
+
+@using (Ajax.BeginForm("CheckOut", "Shoppingcart", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "load_data",
+    OnSuccess = "OnSuccessCO",
+    OnFailure = "OnFailure",
+    OnBegin = "OnBeginCO"
+
+}, new { @Id = "myForm" }))
+{
+    <script>
+        function OnBeginCO() {
+            $('#btnCheckOut').attr("disabled", "disabled");
+            $('#load_send').html('<h3>Đang xử lý hoá đơn của bạn....</h2>');
+        }
+        function OnSuccessCO(res) {
+            if (res.Success) {
+                if (res.Code == 1) {
+                    location.href = "/ShoppingCart/CheckOutSuccess?orderCode=" + res.MaHoaDon; // Truyền mã hoá đơn
+                }
+                else if (res.Code == 2) {
+                    location.href = res.Url;
+                }
+                else if (res.Code == 3) {
+                    location.href = "/ShoppingCart/CheckOutSuccessByOffline?orderCode=" + res.MaHoaDon; // Truyền mã hoá đơn
+                }
+            }
+        }
+    </script>
+    @Html.AntiForgeryToken()
+
+    <h3>Thông tin khách hàng</h3>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Họ tên khách hàng</label>
+                    <input type="text" name="TenKhachHang" class="form-control" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label>Căn cước công dân 9 số</label>
+                    <input type="text" name="CCCD" class="form-control" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label>Số điện  10 số</label>
+                    <input type="text" name="SoDienThoai" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Địa chỉ nhận hàng</label>
+                    <input type="text" name="DiaChi" class="form-control" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="Email" class="form-control" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                    <label>Hình thức thanh toán</label>
+                    <select class="form-control" name="TypePayment" id="drTypePayment">
+                        <option value="1" selected>Mua trực tuyến - Thanh toán khi nhận hàng</option>
+                        <option value="2">Mua trực tuyến - Chuyển khoản</option>
+                        <option value="3">Mua trực tiếp</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group" id="load_form_payment" style="display:none;">
+        <h4> <label>Chọn phương thức thanh toán:</label><br /></h4>
+        @*<h5>Cách 1: Chuyển hướng sang VNPAY chọn phương thức thanh toán</h5>*@
+        <label><input type="radio" name="TypePaymentVN" value="0" checked /> Cổng thanh toán VNPAY-QR</label>
+        @*<h5>Cách 2: Tách phương thức thanh toán tại site của Merchant</h5>
+            <label><input type="radio" name="TypePaymentVN" value="1" /> Thanh toán qua ứng dụng hỗ trợ VNPAYQR </label><br />
+            <label><input type="radio" name="TypePaymentVN" value="2" /> ATM-Tài khoản ngân hàng nội địa </label><br />
+            <label><input type="radio" name="TypePaymentVN" value="3" /> Thanh toán qua thẻ quốc tế </label><br />*@
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            @Html.Action("Partial_Item_ThanhToan", "ShoppingCart")
+        </div>
+    </div>
+    <div class="form-group" id="load_send"></div>
+    <div class="form-group d-flex justify-content-center">
+        <button type="submit" class="btn btn-block btn-success" style="width: 400px;" id="btnCheckOut">Xác nhận</button>
+    </div>
+}

@@ -1,0 +1,138 @@
+﻿@model MEGATECH.Models.EF.NhaCungCap
+
+@{
+    ViewBag.Title = "Thêm mới nhà cung cấp";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Thêm mới nhà cung cấp</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Supplier")">Danh sách nhà cung cấp</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Thêm mới</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        @using (Html.BeginForm("Create", "Supplier", FormMethod.Post, new { }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <!-- your steps content here -->
+                            <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Tên nhà cung cấp <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Nhập tên nhà cung cấp" })
+                                            @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Alias</label>
+                                            @Html.TextBoxFor(x => x.Alias, new { @class = "form-control", @placeholder = "Nhập Alias" })
+                                            @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group form-group-default">
+                                            <label>Số điện thoại <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.SoDienThoai, new { @class = "form-control", @placeholder = "Nhập số điện thoại nhà cung cấp" })
+                                            @Html.ValidationMessageFor(x => x.SoDienThoai, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group form-group-default">
+                                            <label>Email <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Nhập Email" })
+                                            @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Hình ảnh nhà cung cấp</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    @Html.TextBoxFor(x => x.Image, new { @id = "txtImage", @class = "form-control", @readonly = "readonly" })
+                                                </div>
+                                                <div class="input-group-append col-md-2">
+                                                    <input type="button" value="Tải ảnh" onclick="BrowseServer('txtImage');" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Title</label>
+                                            @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "Nhập Seo Title" })
+                                            @Html.ValidationMessageFor(x => x.SeoTitle, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Description</label>
+                                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control", @placeholder = "Nhập Seo Description" })
+                                            @Html.ValidationMessageFor(x => x.SeoDescription, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Keywords</label>
+                                            @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control", @placeholder = "Nhập Seo Keywords" })
+                                            @Html.ValidationMessageFor(x => x.SeoKeywords, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-success">Thêm mới</button>
+                                    <a href="@Url.Action("Index", "Supplier")" class="btn btn-danger">Quay lại</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->
+@section  scripts{
+
+
+    <script src="~/Scripts/jsConvert.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace('txtDetail', {
+                customConfig: '/content/ckeditor/config.js',
+                extraAllowedContent: 'span',
+            });
+        });
+        function BrowseServer(field) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                document.getElementById(field).value = fileUrl;
+            };
+            finder.popup();
+        }
+    </script>
+}

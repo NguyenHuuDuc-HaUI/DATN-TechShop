@@ -1,0 +1,77 @@
+﻿@model MEGATECH.Models.EF.ChucVu
+@{
+    ViewBag.Title = "Chi tiết thông tin chức vụ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Chi tiết thông tin chức vụ: @Model.TenChucVu</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Category")">Danh sách chức vụ</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Xem chi tiết</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Tên chức vụ</label>
+                                        <span class="form-control">@Model.TenChucVu</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-default">
+                                        <label>Mô tả</label>
+                                        @if (Model.MoTa == null)
+                                        {
+                                            <textarea class="form-control">Chưa có mô tả</textarea>
+                                        }
+                                        else
+                                        {
+                                            <textarea class="form-control">@Model.MoTa</textarea>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <a href="/admin/ChucVu/edit/@Model.ID" class="btn btn-primary">Vào trang chỉnh sửa</a>
+                                <a href="@Url.Action("Index", "ChucVu")" class="btn btn-danger">Quay lại</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

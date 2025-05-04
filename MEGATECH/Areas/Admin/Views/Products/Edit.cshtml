@@ -1,0 +1,297 @@
+﻿@model MEGATECH.Models.EF.Product
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Chỉnh sửa thông tin sản phẩm: @Model.Title</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Products")">Danh sách sản phẩm</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Chỉnh sửa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                </div><!-- /.card-header -->
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @using (Html.BeginForm("Edit", "Products", FormMethod.Post, new { }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(x => x.MaSanPham)
+                                @Html.HiddenFor(x => x.CreatedBy)
+                                @Html.HiddenFor(x => x.CreatedDate)
+                                @Html.HiddenFor(x => x.Status)
+                                @Html.HiddenFor(x => x.IsActive)
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="tab-content">
+                                            <div class="row">
+                                                <div class="col-md-12 mb-3">
+                                                    <label style="font-weight: bold;">THÔNG TIN CHUNG</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-group-default">
+                                                        <label>Tên sản phẩm <span class="text-danger">*</span></label>
+                                                        @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Nhập tên sản phẩm" })
+                                                        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="form-group form-group-default">
+                                                        <label>Alias</label>
+                                                        @Html.TextBoxFor(x => x.Alias, new { @class = "form-control", @placeholder = "Nhập Alias" })
+                                                        @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-group-default">
+                                                        <label class="mb-2">Loại sản phẩm <span class="text-danger">*</span></label>
+                                                        @Html.DropDownListFor(x => x.ProductCategoryID, ViewBag.IdProductCategory as SelectList, "Chọn loại sản phẩm", new { @class = "form-control select" })
+                                                        @Html.ValidationMessageFor(x => x.ProductCategoryID, null, new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="form-group form-group-default">
+                                                        <label class="mb-2">Nhà cung cấp <span class="text-danger">*</span></label>
+                                                        @Html.DropDownListFor(x => x.SupplierID, ViewBag.IdSupplier as SelectList, "Chọn nhà cung cấp", new { @class = "form-control select" })
+                                                        @Html.ValidationMessageFor(x => x.SupplierID, null, new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex justify-content-center">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Hình ảnh sản phẩm</label>
+                                                            <div class="input-group">
+                                                                <div class="custom-file">
+                                                                    @Html.TextBoxFor(x => x.Image, new { @id = "txtImage", @class = "form-control", @readonly = "readonly" })
+                                                                </div>
+                                                                <div class="input-group-append col-md-2">
+                                                                    <input type="button" value="Tải ảnh" onclick="BrowseServer('txtImage');" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-12 mb-3">
+                                                            <label style="font-weight: bold;">THÔNG TIN CHI TIẾT</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Mô tả</label>
+                                                                @Html.TextAreaFor(x => x.MoTa, new { @class = "form-control", @placeholder = "Nhập mô tả" })
+                                                                @Html.ValidationMessageFor(x => x.MoTa, null, new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Chi tiết sản phẩm</label>
+                                                                @Html.TextAreaFor(x => x.ChiTiet, new { @class = "form-control", @placeholder = "Nhập chi tiết" })
+                                                                @Html.ValidationMessageFor(x => x.ChiTiet, null, new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-12 mb-3">
+                                                            <label style="font-weight: bold;">SEO</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Seo Title</label>
+                                                                @Html.TextBoxFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "Nhập SeoTitle" })
+                                                                @Html.ValidationMessageFor(x => x.SeoTitle, null, new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Seo Description</label>
+                                                                @Html.TextBoxFor(x => x.SeoDescription, new { @class = "form-control", @placeholder = "Nhập SeoDescription" })
+                                                                @Html.ValidationMessageFor(x => x.SeoDescription, null, new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Seo Keywords</label>
+                                                                @Html.TextBoxFor(x => x.SeoKeywords, new { @class = "form-control", @placeholder = "Nhập SeoKeywords" })
+                                                                @Html.ValidationMessageFor(x => x.SeoKeywords, null, new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label style="font-weight: bold;">THÔNG TIN BÁN SẢN PHẨM</label>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="form-group form-group-default">
+                                                        <label>Số lượng <span class="text-danger">*</span></label>
+                                                        @Html.TextBoxFor(x => x.SoLuong, new { @class = "form-control", @placeholder = "Nhập số lượng" })
+                                                        @Html.ValidationMessageFor(x => x.SoLuong, null, new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="form-group form-group-default">
+                                                        <label>Giá niêm yết <span class="text-danger">*</span></label>
+                                                        <input type="text" name="demoPrice" value="@Model.GiaNiemYet" id="demoPrice" class="form-control auto" data-a-sign="VND " data-a-dec="," data-a-sep=".">
+                                                        @Html.HiddenFor(x => x.GiaNiemYet, new { @class = "", @placeholder = "Giá niêm yết" })
+                                                        @Html.ValidationMessageFor(x => x.GiaNiemYet, null, new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="form-group form-group-default">
+                                                        <label>Giảm giá (%)</label>
+                                                        <input type="text" name="demoPriceSale" id="demoPriceSale" value="@Model.GiamGia" class="form-control auto" data-a-sign=" % " data-p-sign="s">
+                                                        @Html.HiddenFor(x => x.GiamGia, new { @class = "form-control", @placeholder = "Phần trăm giảm giá" })
+                                                        @Html.ValidationMessageFor(x => x.GiamGia, null, new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <div class="form-group form-group-default">
+                                                        <label>Giá nhập <span class="text-danger">*</span></label>
+                                                        <input type="text" name="demoOriginalPrice" value="@Model.GiaNhap" id="demoOriginalPrice"  data-a-sign="VND " class="form-control auto">
+                                                        @Html.HiddenFor(x => x.GiaNhap, new { @class = "form-control", @placeholder = "Giá nhập" })
+                                                        @Html.ValidationMessageFor(x => x.GiaNhap, null, new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 d-flex justify-content-center">
+                                                    <div class="col-md-8 text-center">
+                                                        @Html.HiddenFor(x => x.GiaBan, new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(x => x.GiaBan, null, new { @class = "text-danger", @id = "errorMessage" })
+                                                        @if (!ViewData.ModelState.IsValidField("GiaBan"))
+                                                        {
+                                                            <label class="text-info">Giá niêm yết: @MEGATECH.Common.Common.FormatNumber(Model.GiaNiemYet, 0) VND</label><br />
+                                                            <label class="text-info">Giảm giá: @MEGATECH.Common.Common.FormatNumber(Model.GiamGia, 0) %</label><br />
+                                                            <label class="text-info">Giá nhập: @MEGATECH.Common.Common.FormatNumber(Model.GiaNhap, 0) VND</label> <br />
+                                                            <label class="text-warning">Giải pháp: Chỉ nên giảm tối đa @ViewBag.maxGiamGia % để tránh lỗ</label>
+                                                        }
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 mb-3">
+                                                    <label style="font-weight: bold;">THÔNG TIN HIỂN THỊ</label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form-group form-group-default">
+                                                        <div class="d-flex justify-content-around">
+                                                            <div class="custom-control custom-checkbox">
+                                                                @Html.CheckBoxFor(x => x.IsHome, new { @class = "custom-control-input", @id = "customCheckbox" })
+                                                                <label for="customCheckbox" class="custom-control-label text-info font-weight-bold">Trang chủ</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                @Html.CheckBoxFor(x => x.IsHot, new { @class = "custom-control-input", @id = "hotCheckbox" })
+                                                                <label for="hotCheckbox" class="custom-control-label text-info font-weight-bold">Bán chạy</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                @Html.CheckBoxFor(x => x.IsNew, new { @class = "custom-control-input", @id = "newCheckbox" })
+                                                                <label for="newCheckbox" class="custom-control-label text-info font-weight-bold">Mới nhất</label>
+                                                            </div>
+
+                                                            <div class="custom-control custom-checkbox">
+                                                                @Html.CheckBoxFor(x => x.IsSale, new { @class = "custom-control-input", @id = "saleCheckbox" })
+                                                                <label for="saleCheckbox" class="custom-control-label text-info font-weight-bold">Giảm giá</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
+                                        <a href="@Url.Action("Index", "Products")" class="btn btn-danger">Quay lại</a>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section  scripts{
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select').select2()
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace('txtDetail', {
+                customConfig: '/content/ckeditor/config.js',
+                extraAllowedContent: 'span',
+            });
+        });
+        function BrowseServer(field) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                document.getElementById(field).value = fileUrl;
+            };
+            finder.popup();
+        }
+    </script>
+    <script src="~/Scripts/jsConvert.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.auto').autoNumeric('init'); // Khởi tạo autoNumeric cho các trường
+            $('#demoPrice, #demoPriceSale, #demoOriginalPrice').on('change', function () {
+                var $this = $(this);
+                var demoGet = $this.autoNumeric('get'); // Get the numeric value
+
+                // Update the corresponding hidden field
+                $this.next('input[type="hidden"]').val(demoGet);
+
+                // Set the formatted value back to the input
+                $this.autoNumeric('set', demoGet);
+            });
+
+            // Hàm để ẩn thông báo sau 5 giây
+            function hideMessage() {
+                $('.message-container').fadeOut(); // Ẩn thông báo
+            }
+
+            // Nếu có thông báo, thiết lập timeout để tự động ẩn sau 5 giây
+            if ($('.message-container').length) {
+                setTimeout(hideMessage, 5000); // 5000 milliseconds = 5 seconds
+            }
+        });
+    </script>
+}

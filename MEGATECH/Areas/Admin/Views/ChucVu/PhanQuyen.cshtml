@@ -1,0 +1,128 @@
+﻿@model MEGATECH.Models.EF.ChucVu
+@{
+    ViewBag.Title = "Phân quyền chức năng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var listchucNang = new MEGATECH.Models.MEGATECHDBContext().chucNangQuyens.ToList();
+}
+
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Phân quyền chức năng của chức vụ: @Model.TenChucVu</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "ChucVu")">Danh sách chức vụ</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Phân quyền chức năng</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card-tools">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-tools text-right">
+                                <a href="@Url.Action("Index", "ChucVu")" class="btn btn-rounded btn-secondary"><i class="fas fa-reply" style="font-size: 15px"></i> Quay lại</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="message-container">
+                        @*Hiển thị dòng thông báo*@
+                        @Html.Partial("Message")
+                    </div>
+                    <div>
+                        <h2 class="text-center mb-3" style="font-weight: bold;">DANH SÁCH CÁC QUYỀN</h2>
+                        <div class="row">
+                            <div class="offset-md-2 col-md-8 offset-md-2">
+                                <table class="display table table-striped table-hover table-bordered">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th>#</th>
+                                            <th>Mã chức năng</th>
+                                            <th>Tên chức năng</th>
+                                            <th>Phân quyền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model != null)
+                                        {
+                                            var i = 1;
+                                            foreach (var item in listchucNang)
+                                            {
+                                                var phanQuyen = new MEGATECH.Models.MEGATECHDBContext().phanQuyens.Count(x => x.IDChucVu == Model.ID && x.MaChucNang == item.MaChucNang);
+                                                <tr>
+                                                    <td class="text-center">@i</td>
+                                                    <td class="text-center">@item.MaChucNang</td>
+                                                    <td class="text-center">@item.TenChucNang</td>
+                                                    <td class="text-center">
+                                                        <input type="checkbox" @Html.Raw(phanQuyen > 0 ? "checked" : "") onchange="LuuPhanQuyen('@Model.ID','@item.MaChucNang')" />
+                                                    </td>
+                                                </tr>
+                                                i++;
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        function LuuPhanQuyen(chucVu, maChucNang) {
+            var jsonData = {
+                chucVu: chucVu,
+                maChucNang: maChucNang
+            };
+
+            $.ajax({
+                url: '@Url.Action("PhanQuyen", "ChucVu")',
+                type: 'POST',
+                data: jsonData,
+                dataType: 'JSON',
+                success: function (rs) {
+                    if (rs.success) {
+                        alert("Phân quyền chức năng thành công")
+                    } else {
+                        alert("Gỡ bỏ phân quyền chức năng thành công")
+                    }
+                }
+            });
+        }
+    </script>
+}
+

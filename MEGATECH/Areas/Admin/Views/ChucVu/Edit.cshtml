@@ -1,0 +1,81 @@
+﻿@model MEGATECH.Models.EF.ChucVu
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin chức vụ";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Chỉnh sửa thông tin chức vụ: @Model.TenChucVu</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "ChucVu")">Danh sách chức vụ</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Chỉnh sửa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        @using (Html.BeginForm("Edit", "ChucVu", FormMethod.Post, new { }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(x => x.ID)
+                            @Html.HiddenFor(x => x.Status)
+                            @Html.HiddenFor(x => x.CreatedBy)
+                            @Html.HiddenFor(x => x.CreatedDate)
+                            <!-- your steps content here -->
+                            <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Tên chức vụ <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.TenChucVu, new { @class = "form-control", @placeholder = "Nhập tên chức vụ" })
+                                            @Html.ValidationMessageFor(x => x.TenChucVu, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-group-default">
+                                            <label>Mô tả</label>
+                                            @Html.TextAreaFor(x => x.MoTa, new { @class = "form-control", @placeholder = "Nhập mô tả" })
+                                            @Html.ValidationMessageFor(x => x.MoTa, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-success">Thêm mới</button>
+                                    <a href="@Url.Action("Index", "ChucVu")" class="btn btn-danger">Quay lại</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->

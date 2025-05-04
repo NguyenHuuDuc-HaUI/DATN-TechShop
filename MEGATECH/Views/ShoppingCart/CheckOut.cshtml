@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Hoá đơn";
+}
+
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li class="active"><a href="/"><i class="fa fa-angle-right" aria-hidden="true"></i>Giỏ hàng</a></li>
+                </ul>
+            </div>
+
+            <!-- Sidebar -->
+            <!-- Main Content -->
+            <div class="row">
+
+                <div class="col-md-12 text-center">
+                    <h1 class="">Lập hoá đơn</h1>
+                    <h5><i>Ngày </i>@ViewBag.Date<i> Tháng </i>@ViewBag.Month<i> Năm </i>@ViewBag.Year</h5>
+                </div>
+            </div>
+            <hr />
+            @if (ViewBag.CheckCart != null)
+            {
+                <div class="row">
+
+                    <div id="show_success"></div>
+                    <div class="col-md-12">
+                        @Html.Action("Partial_CheckOut", "Shoppingcart")
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="text-center">
+                    <h4>Hãy thêm <a href="/san-pham">sản phẩm</a> của bạn.</h4>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Content/assets/js/categories_custom.js"></script>
+    <script>
+        function OnFailure(rs) {
+            if (!rs.Success) {
+                $('#show_success').html("Bạn mua hàng thất bại! Xin vui lòng thử lại");
+            }
+        }
+        $(document).ready(function () {
+            $('body').on('change', '#drTypePayment', function () {
+                var type = $(this).val();
+                $('#load_form_payment').hide();
+                if (type == "2") {
+                    $('#load_form_payment').show();
+                }
+            });
+            $('#myForm').validate({
+                rules: {
+                    'TenKhachHang': {
+                        required: true
+                    },
+                    'SoDienThoai': {
+                        required: true
+                    },
+                    'DiaChi': {
+                        required: true
+                    },
+                    'CCCD': {
+                        required: true
+                    },
+                    'Email': {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    'TenKhachHang': 'Họ tên không được để trống',
+                    'SoDienThoai': 'Số điện thoại không được để trống',
+                    'DiaChi': 'Địa chỉ không được để trống',
+                    'Email': 'Email chưa hợp lệ hoặc đang để trống',
+                    'CCCD': 'Căn cước công dân 9 số không được để trống'
+                }
+            });
+        });</script>
+}

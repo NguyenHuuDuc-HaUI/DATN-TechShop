@@ -1,0 +1,247 @@
+﻿@model MEGATECH.Models.EF.Product
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Chi tiết thông tin sản phẩm: @Model.Title</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Products")">Danh sách sản phẩm</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Xem chi tiết</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <label style="font-weight: bold;">THÔNG TIN CHUNG</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Mã sản phẩm</label>
+                                        <span class="form-control">@Model.MaSanPham</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Tên sản phẩm</label>
+                                        <span class="form-control">@Model.Title</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Alias</label>
+                                        <span class="form-control">@Model.Alias</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default text-center">
+                                        <label>Hình ảnh sản phẩm</label><br />
+                                        @if (!string.IsNullOrEmpty(Model.Image))
+                                        {
+                                            <img src="@Model.Image" alt="Hình ảnh sản phẩm" width="200" class="img-fluid">
+                                        }
+                                        else
+                                        {
+                                            <span class="form-control">Chưa thêm hình ảnh cho sản phẩm này</span>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label style="font-weight: bold;">THÔNG TIN CHI TIẾT</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Mô tả</label>
+                                                <textarea class="form-control">@Model.MoTa</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <div class="form-group form-group-default">
+                                                <label>Chi tiết sản phẩm</label>
+                                                <textarea class="form-control">@Model.ChiTiet</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label style="font-weight: bold;">THÔNG TIN PHÂN LOẠI</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Loại sản phẩm</label>
+                                                <span class="form-control">@Model.ProductCategory.Title</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Nhà cung cấp</label>
+                                                <span class="form-control">@Model.NhaCungCap.Title</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <label style="font-weight: bold;">THÔNG TIN SEO</label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-group-default">
+                                                <label>Seo Title</label>
+                                                <textarea class="form-control">@Model.SeoTitle</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-group-default">
+                                                <label>Seo Description</label>
+                                                <textarea class="form-control">@Model.SeoDescription</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-group-default">
+                                                <label>Seo Keywords</label>
+                                                <textarea class="form-control">@Model.SeoKeywords</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label style="font-weight: bold;">THÔNG TIN BÁN SẢN PHẨM</label>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-group-default">
+                                        <label>Số lượng</label>
+                                        <span class="form-control">@Model.SoLuong</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-group-default">
+                                        <label>Giá nhập</label>
+                                        <span class="form-control">@MEGATECH.Common.Common.FormatNumber(Model.GiaNhap, 0) VNĐ</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Giá niêm yết</label>
+                                        <span class="form-control">@MEGATECH.Common.Common.FormatNumber(Model.GiaNiemYet, 0) VNĐ</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group form-group-default">
+                                        <label>Giảm giá</label>
+                                        @if (Model.GiamGia == null)
+                                        {
+                                            <span class="form-control">Không giảm giá</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="form-control">@MEGATECH.Common.Common.FormatNumber(Model.GiamGia, 0) %</span>
+                                        }
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Giá bán</label>
+                                        <span class="form-control">@MEGATECH.Common.Common.FormatNumber(Model.GiaBan, 0) VNĐ</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label style="font-weight: bold;">THÔNG TIN HIỂN THỊ</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-default">
+                                        <div class="d-flex justify-content-around">
+                                            <div class="custom-control custom-checkbox">
+                                                @if (Model.IsHome == true)
+                                                {
+                                                    @Html.CheckBoxFor(x => x.IsHome, new { @class = "custom-control-input", @id = "homeCheckbox", @checked = "checked", @disabled = "disabled" })
+                                                }
+                                                else
+                                                {
+                                                    @Html.CheckBoxFor(x => x.IsHome, new { @class = "custom-control-input", @id = "homeCheckbox", @disabled = "disabled" })
+                                                }
+                                                <label for="homeCheckbox" class="custom-control-label text-info font-weight-bold">Trang chủ</label>
+                                            </div>
+
+                                            <div class="custom-control custom-checkbox">
+                                                @if (Model.IsHot == true)
+                                                {
+                                                    @Html.CheckBoxFor(x => x.IsHot, new { @class = "custom-control-input", @id = "hotCheckbox", @checked = "checked", @disabled = "disabled" })
+                                                }
+                                                else
+                                                {
+                                                    @Html.CheckBoxFor(x => x.IsHot, new { @class = "custom-control-input", @id = "hotCheckbox", @disabled = "disabled" })
+                                                }
+                                                <label for="hotCheckbox" class="custom-control-label text-info font-weight-bold">Bán chạy</label>
+                                            </div>
+
+                                            <div class="custom-control custom-checkbox">
+                                                @if (Model.IsNew == true)
+                                                {
+                                                    @Html.CheckBoxFor(x => x.IsNew, new { @class = "custom-control-input", @id = "newCheckbox", @checked = "checked", @disabled = "disabled" })
+                                                }
+                                                else
+                                                {
+                                                    @Html.CheckBoxFor(x => x.IsNew, new { @class = "custom-control-input", @id = "newCheckbox", @disabled = "disabled" })
+                                                }
+                                                <label for="newCheckbox" class="custom-control-label text-info font-weight-bold">Mới nhất</label>
+                                            </div>
+
+                                            <div class="custom-control custom-checkbox">
+                                                @if (Model.IsSale == true)
+                                                {
+                                                    @Html.CheckBoxFor(x => x.IsSale, new { @class = "custom-control-input", @id = "saleCheckbox", @checked = "checked", @disabled = "disabled" })
+                                                }
+                                                else
+                                                {
+                                                    @Html.CheckBoxFor(x => x.IsSale, new { @class = "custom-control-input", @id = "saleCheckbox", @disabled = "disabled" })
+                                                }
+                                                <label for="saleCheckbox" class="custom-control-label text-info font-weight-bold">Giảm giá</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <a href="/admin/products/edit/@Model.MaSanPham" class="btn btn-primary">Vào trang chỉnh sửa</a>
+                            <a href="@Url.Action("Index", "Products")" class="btn btn-danger">Quay lại</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

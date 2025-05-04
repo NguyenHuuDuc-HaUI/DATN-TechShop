@@ -1,0 +1,7 @@
+﻿﻿﻿@if (TempData.ContainsKey("message"))
+{
+    MEGATECH.Models.XMessage message = (MEGATECH.Models.XMessage)TempData["message"];
+    <div class="alert alert-@message.TypeMsg">
+        @message.Msg
+    </div>
+}

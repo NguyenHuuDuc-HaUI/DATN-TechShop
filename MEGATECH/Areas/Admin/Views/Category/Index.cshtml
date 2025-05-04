@@ -1,0 +1,198 @@
+﻿@model IEnumerable<MEGATECH.Models.EF.Category>
+
+@{
+    ViewBag.Title = "Danh mục Menu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Main content -->
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Danh sách Menu</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Category")">Danh mục Menu</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card-tools">
+                                <a href="@Url.Action("Create", "Category")" class="btn btn-rounded btn-primary">Thêm mới</a>
+                                <a href="#" class="btn btn-rounded btn-warning" id="BtnTrashAll">Đưa nhiều vào thùng rác</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card-tools text-right">
+                                <a href="#" class="btn btn-rounded btn-success"><i class="fas fa-file-excel" style="font-size: 15px;"></i> Xuất file Excel</a>
+                                <a href="@Url.Action("Trash", "Category")" class="btn btn-rounded btn-danger"><i class="fa fa-trash" style="font-size: 15px;"></i> Thùng rác</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="message-container">
+                        @*Hiển thị dòng thông báo*@
+                        @Html.Partial("Message")
+                    </div>
+                    <div class="table-responsive">
+                        <table id="multi-filter-select" class="display table table-striped table-hover table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th><input type="checkbox" id="SelectAll" /></th>
+                                    <th>#</th>
+                                    <th>Tên danh mục</th>
+                                    <th>Thứ tự</th>
+                                    <th>Hiển thị</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    var i = 1;
+                                    foreach (var item in Model)
+                                    {
+                                        var strActive = item.IsActive ? "<i class='fa-solid fa-eye' style='color: #00cc8f;'></i>" : "<i class='fa-solid fa-eye-slash' style='color: #ff0000;'></i>";
+                                        <tr id="trow_@item.ID">
+                                            <td class="text-center"><input type="checkbox" class="cbkItem" value="@item.ID" /></td>
+                                            <td class="text-center">@i</td>
+                                            <td class="text-center">@item.Title</td>
+                                            <td class="text-center">@item.Position</td>
+                                            <td class="text-center">
+                                                <a href='#' data-id="@item.ID" class="btnActive">@Html.Raw(strActive)</a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="/admin/category/detail/@item.ID" class="btn btn-xs btn-warning text-white"><i class="fa-solid fa-circle-info"></i></a>
+                                                <a href="/admin/category/edit/@item.ID" class="btn btn-xs btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                                @*<a href="#" data-id="@item.Id" class="btn btn-xs btn-danger btnDelete"><i class="fa-solid fa-trash-can"></i></a>*@
+                                                <a href="/admin/category/GoToTrash/@item.ID" class="btn btn-xs btn-danger"><i class="fa-solid fa-trash-can"></i></a>
+                                            </td>
+                                        </tr>
+                                        i++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->
+
+@section scripts{
+    <script>
+    $(document).ready(function () {
+        $('body').on('click', '#BtnTrashAll', function (e) {
+            e.preventDefault();
+
+            var checkbox = $(this).parents('.card').find('tr td input:checkbox');
+            var checkedCheckbox = checkbox.filter(':checked');
+
+            // Kiểm tra xem có checkbox nào được chọn không
+            if (checkedCheckbox.length === 0) {
+                // Hiển thị cảnh báo
+                alert('Bạn cần phải tích vào Checkbox của ít nhất một danh mục để sử dụng chức năng này!');
+                return;
+            }
+
+            var str = "";
+            var i = 0;
+            checkbox.each(function () {
+                if (this.checked) {
+                    var _id = $(this).val();
+                    if (i === 0) {
+                        str += _id;
+                    } else {
+                        str += "," + _id;
+                    }
+                    i++;
+                } else {
+                    checkbox.attr('selected', '');
+                }
+            });
+            if (str.length > 0) {
+                var conf = confirm('Bạn có muốn đưa các bản ghi này vào thùng rác hay không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '@Url.Action("GoToTrashAll", "Category")',
+                        type: 'POST',
+                        data: { ids: str },
+                        success: function (rs) {
+                            if (rs.success) {
+                                location.reload();
+                            }
+                        }
+                    });
+                }
+            }
+        });
+        $('body').on('change', '#SelectAll', function () {
+            var checkStatus = this.checked;
+            var checkbox = $(this).parents('.card-body').find('tr td input:checkbox');
+            checkbox.each(function () {
+                this.checked = checkStatus;
+                if (this.checked) {
+                    checkbox.attr('selected', 'checked');
+                } else {
+                    checkbox.attr('selected', '');
+                }
+            });
+        });
+        $('body').on('click', '.btnActive', function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            var id = btn.data("id");
+            $.ajax({
+                url: '@Url.Action("IsActive", "Category")',
+                type: 'POST',
+                data: { id: id },
+                success: function (rs) {
+                    if (rs.success) {
+                        if (rs.isActive) {
+                            btn.html("<i class='fa-solid fa-eye' style='color: #00cc8f;'></i>");
+                            location.reload();
+                        } else {
+                            btn.html("<i class='fa-solid fa-eye-slash' style='color: #ff0000;'></i>");
+                            location.reload();
+                        }
+                    }
+
+                }
+            });
+        });
+        // Hàm để ẩn thông báo sau 5 giây
+        function hideMessage() {
+            $('.message-container').fadeOut(); // Ẩn thông báo
+        }
+
+        // Nếu có thông báo, thiết lập timeout để tự động ẩn sau 5 giây
+        if ($('.message-container').length) {
+            setTimeout(hideMessage, 5000); // 5000 milliseconds = 5 seconds
+        }
+    });
+
+    </script>
+}

@@ -1,0 +1,475 @@
+﻿@model MEGATECH.Models.ThongKeSanPham
+@{
+    ViewBag.Title = "Thống kê";
+}
+<link href="~/Content/datepicker/jquery.datetimepicker.min.css" rel="stylesheet" />
+<!-- Main content -->
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">THỐNG KÊ TỔNG HỢP</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Statistical")">Thống kê</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="font-weight: bold;">THỐNG KÊ DOANH THU</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="mr-1">
+                                    <label for="fromDay">Từ</label>
+                                    <input type="datetime" id="fromDay" class="picker pt-1 pb-1 border-1" placeholder="Nhập thời gian bắt đầu"/>
+                                </div>
+                                <div class="mr-2">
+                                    <label for="toDay">Đến</label>
+                                    <input type="datetime" id="toDay" class="picker pt-1 pb-1 border-1" placeholder="Nhập thời gian kết thúc"/>
+                                </div>
+                                <button id="searchButton" class="btn btn-info d-flex align-items-center" style="height: 30px" onclick="timKiem()">Tìm kiếm</button>
+                            </div>
+                            <div class="chart">
+                                <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; pointer-events: none;"></canvas>
+                            </div>
+                            <div class="details text-center">
+                                <h5>Biểu đồ báo cáo doanh thu hàng ngày</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="text-center" style="font-weight: bold;">BÁO CÁO DOANH THU</h3>
+                            <table class="display table table-striped table-hover table-bordered">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>#</th>
+                                        <th>Ngày</th>
+                                        <th>Doanh thu</th>
+                                        <th>Lợi nhuận</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center" id="load_data"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="font-weight: bold;">THỐNG KÊ SẢN PHẨM BÁN CHẠY</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="mr-1">
+                                    <label for="fromDay">Từ</label>
+                                    <input type="datetime" id="fromDay2" class="picker pt-1 pb-1 border-1" placeholder="Nhập thời gian bắt đầu"/>
+                                </div>
+                                <div class="mr-2">
+                                    <label for="toDay">Đến</label>
+                                    <input type="datetime" id="toDay2" class="picker pt-1 pb-1 border-1" placeholder="Nhập thời gian kết thúc"/>
+                                </div>
+                                <button id="searchButton2" class="btn btn-info d-flex align-items-center" style="height: 30px" onclick="timKiem2()">Tìm kiếm</button>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="chart mt-4">
+                                <canvas id="productSalesChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; pointer-events: none;"></canvas>
+                            </div>
+                            <div class="details text-center">
+                                <h5>Biểu đồ thống kê sản phẩm bán chạy</h5>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <hr style="width: 50%" />
+                            <h3 class="text-center" style="font-weight: bold;">THỐNG KÊ SƠ LƯỢC SẢN PHẨM BÁN ĐƯỢC TRONG NGÀY</h3>
+                        </div>
+
+                        <div class="col-md-12 d-flex justify-content-center">
+
+                            <table class="display table table-striped table-hover table-bordered" style="width: 60%;">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>#</th>
+                                        <th>Ngày</th>
+                                        <th>Tổng số lượng bán được</th>
+                                        <th>Sản phẩm bán được nhiều nhất</th>
+                                        <th>Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="product_sales_data" class="text-center"></tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="font-weight: bold;">THỐNG KÊ HÌNH THỨC MUA HÀNG CỦA KHÁCH HÀNG</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="mr-1">
+                                    <label for="fromDay">Từ</label>
+                                    <input type="datetime" id="fromDay3" class="picker pt-1 pb-1 border-1" placeholder="Nhập thời gian bắt đầu" />
+                                </div>
+                                <div class="mr-2">
+                                    <label for="toDay">Đến</label>
+                                    <input type="datetime" id="toDay3" class="picker pt-1 pb-1 border-1" placeholder="Nhập thời gian kết thúc" />
+                                </div>
+                                <button id="searchButton3" class="btn btn-info d-flex align-items-center" style="height: 30px" onclick="timKiem3()">Tìm kiếm</button>
+                            </div>
+                            <div class="chart">
+                                <canvas id="paymentMethodsChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; pointer-events: none;"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <table class="display table table-striped table-hover table-bordered">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th>#</th>
+                                        <th>Thời gian</th>
+                                        <th>Số lượng mua trực tuyến</th>
+                                        <th>Số lượng mua trực tiếp</th>
+                                        <th>Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="payment_method_data" class="text-center"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->
+
+
+@section scripts{
+    <script src="~/Content/clients/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/Content/assets/plugins/moment/moment.min.js"></script>
+    <script src="~/Content/datepicker/jquery.datetimepicker.full.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.picker').datetimepicker({
+                autoclose: true,
+                timepicker: false,
+                datepicker: true,
+                format: "d/m/Y",
+                weeks: true
+            });
+
+            $.datetimepicker.setLocale('vi');
+        });
+    </script>
+    <script>
+        $(document).on('click', '.view-detail-sale', function () {
+            var date = $(this).data('date');
+            window.location.href = '/Admin/Statistical/ProductSalesDetail?date=' + date;
+        });
+
+        $(document).on('click', '.view-detail-payment', function () {
+            var date = $(this).data('date');
+            window.location.href = '/Admin/Statistical/PaymentMethodDetail?date=' + date;
+        });
+
+        $(function () {
+            // Initialize the charts on page load
+            loadRevenueAndProfitChart();
+            loadProductSalesChart();
+            loadPaymentMethodsChart();
+            // Search button click event
+            $('#searchButton').click(function () {
+                timKiem();
+            });
+            $('#searchButton2').click(function () {
+                timKiem2();
+            });
+            $('#searchButton3').click(function () {
+                timKiem3();
+            });
+        });
+
+        function timKiem() {
+            var fromDay = $('#fromDay').val();
+            var toDay = $('#toDay').val();
+            loadRevenueAndProfitChart(fromDay, toDay);
+        }
+
+        function loadRevenueAndProfitChart(fromDay = null, toDay = null) {
+            var barChart = document.getElementById('barChart').getContext('2d');
+            var arrDoanhThu = [];
+            var arrLoiNhuan = [];
+            var arrNgay = [];
+
+            $.ajax({
+                url: '/Statistical/GetStatistical',
+                type: 'GET',
+                data: { fromDay: fromDay, toDay: toDay },
+                success: function (rs) {
+                    var data = rs.Data.slice((rs.Data.length - 7 < 0) ? 0 : rs.Data.length - 7, rs.Data.length);
+                    load_data(data);
+                    $.each(data, function (i, item) {
+                        var strDate = moment(item.Date).format('DD/MM/yyyy');
+                        arrNgay.push(strDate);
+                        arrDoanhThu.push(item.DoanhThu);
+                        arrLoiNhuan.push(item.LoiNhuan);
+                    });
+                    var myBarChart = new Chart(barChart, {
+                        type: 'bar',
+                        data: {
+                            labels: arrNgay,
+                            datasets: [
+                                {
+                                    label: 'Doanh thu',
+                                    backgroundColor: 'rgba(210, 214, 222, 1)',
+                                    borderColor: 'rgba(210, 214, 222, 1)',
+                                    data: arrDoanhThu
+                                },
+                                {
+                                    label: 'Lợi nhuận',
+                                    backgroundColor: 'rgba(60,141,188,0.9)',
+                                    borderColor: 'rgba(60,141,188,0.8)',
+                                    data: arrLoiNhuan
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            },
+                        }
+                    });
+                }
+            });
+        }
+
+        function load_data(data) {
+            var strHtml = "";
+            $.each(data, function (i, item) {
+                var strDate = moment(item.Date).format('DD/MM/yyyy');
+                strHtml += "<tr>";
+                strHtml += "<td>" + (i + 1) + "</td>";
+                strHtml += "<td>" + strDate + "</td>";
+                strHtml += "<td>" + item.DoanhThu.toLocaleString() + " VNĐ</td>";
+                strHtml += "<td>" + item.LoiNhuan.toLocaleString() + " VNĐ</td>";
+                strHtml += "</tr>";
+            });
+            $('#load_data').html(strHtml);
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        function timKiem2() {
+            var fromDay = $('#fromDay2').val();
+            var toDay = $('#toDay2').val();
+            loadProductSalesChart(fromDay, toDay);
+        }
+
+        function loadProductSalesChart(fromDay = null, toDay = null) {
+            var productSalesChart = document.getElementById('productSalesChart').getContext('2d');
+            var arrNgay = [];
+            var productData = [];
+
+            $.ajax({
+                url: '/Statistical/GetProductSales',
+                type: 'GET',
+                data: { fromDay: fromDay, toDay: toDay },
+                success: function (rs) {
+                    var data = rs.Data.slice((rs.Data.length - 7 < 0) ? 0 : rs.Data.length - 7, rs.Data.length + 1);
+                    load_product_sales_data(data);
+                    $.each(data, function (i, item) {
+                        var strDate = moment(item.Date).format('DD/MM/yyyy');
+                        arrNgay.push(strDate);
+                        productData.push({
+                            date: strDate,
+                            totalProducts: item.TotalProducts,
+                            products: item.Products,
+                            bestSellingProduct: item.BestSellingProduct
+                        });
+                    });
+
+                    var productLabels = productData.map(d => d.date);
+                    var totalProductsData = productData.map(d => d.totalProducts);
+                    var productDatasets = [];
+
+                    productData.forEach((dayData, index) => {
+                        dayData.products.sort((a, b) => b.Quantity - a.Quantity); // Sort by quantity descending
+                        dayData.products.slice(0, 10).forEach(product => { // Take only top 10 products
+                            var existingDataset = productDatasets.find(d => d.label === product.ProductName);
+                            if (!existingDataset) {
+                                existingDataset = {
+                                    label: product.ProductName,
+                                    data: new Array(productData.length).fill(0),
+                                    backgroundColor: getRandomColor(),
+                                };
+                                productDatasets.push(existingDataset);
+                            }
+                            existingDataset.data[index] = product.Quantity;
+                        });
+                    });
+
+                    productDatasets.unshift({
+                        label: 'Tổng số lượng bán được',
+                        data: totalProductsData,
+                        backgroundColor: 'rgba(60,141,188,0.9)',
+                    });
+
+                    var myProductSalesChart = new Chart(productSalesChart, {
+                        type: 'bar',
+                        data: {
+                            labels: productLabels,
+                            datasets: productDatasets,
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            },
+                        }
+                    });
+                }
+            });
+        }
+
+        function load_product_sales_data(data) {
+            var strHtml = "";
+            $.each(data, function (i, item) {
+                var strDate = moment(item.Date).format('DD/MM/yyyy');
+                strHtml += "<tr>";
+                strHtml += "<td>" + (i + 1) + "</td>";
+                strHtml += "<td>" + strDate + "</td>";
+                strHtml += "<td>" + item.TotalProducts.toLocaleString() + "</td>";
+                strHtml += "<td>" + item.BestSellingProduct + "</td>";
+                strHtml += "<td><button class='btn btn-xs btn-warning text-white view-detail-sale' data-date='" + strDate + "'><i class='fa-solid fa-circle-info'></i></button></td>"; // Thêm cột chức năng
+                strHtml += "</tr>";
+            });
+            $('#product_sales_data').html(strHtml);
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        function timKiem3() {
+            var fromDay = $('#fromDay3').val();
+            var toDay = $('#toDay3').val();
+
+            loadPaymentMethodsChart(fromDay, toDay);
+        }
+
+        function loadPaymentMethodsChart(fromDay = null, toDay = null) {
+            var paymentMethodsChart = document.getElementById('paymentMethodsChart').getContext('2d');
+            var arrNgay = [];
+            var arrOnlinePayments = [];
+            var arrOfflinePayments = [];
+            var strHtml = "";
+
+            $.ajax({
+                url: '/Admin/Statistical/GetPaymentMethodsStatistical',
+                type: 'GET',
+                data: { fromDay: fromDay, toDay: toDay },
+                success: function (rs) {
+                    var data = rs.Data.slice((rs.Data.length - 7 < 0) ? 0 : rs.Data.length - 7, rs.Data.length);
+                    $.each(data, function (i, item) {
+                        var strDate = moment(item.Date).format('DD/MM/yyyy');
+                        arrNgay.push(strDate);
+                        arrOnlinePayments.push(item.OnlineCount);
+                        arrOfflinePayments.push(item.OfflineCount);
+
+                        // Build HTML for table row
+                        strHtml += "<tr>";
+                        strHtml += "<td>" + (i + 1) + "</td>";
+                        strHtml += "<td>" + strDate + "</td>";
+                        strHtml += "<td>" + item.OnlineCount + "</td>";
+                        strHtml += "<td>" + item.OfflineCount + "</td>";
+                        strHtml += "<td><button class='btn btn-xs btn-warning text-white view-detail-payment' data-date='" + strDate + "'><i class='fa-solid fa-circle-info'></i></button></td>"; // T
+                        strHtml += "</tr>";
+                    });
+
+                    // Update table with new data
+                    $('#payment_method_data').html(strHtml);
+
+
+                    var myPaymentMethodsChart = new Chart(paymentMethodsChart, {
+                        type: 'bar',
+                        data: {
+                            labels: arrNgay,
+                            datasets: [
+                                {
+                                    label: 'Thanh toán Online',
+                                    backgroundColor: 'rgba(60,141,188,0.9)',
+                                    borderColor: 'rgba(60,141,188,0.8)',
+                                    data: arrOnlinePayments
+                                },
+                                {
+                                    label: 'Thanh toán Offline',
+                                    backgroundColor: 'rgba(210, 214, 222, 1)',
+                                    borderColor: 'rgba(210, 214, 222, 1)',
+                                    data: arrOfflinePayments
+                                },
+                            ],
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            },
+                        }
+                    });
+                }
+            });
+        }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+}

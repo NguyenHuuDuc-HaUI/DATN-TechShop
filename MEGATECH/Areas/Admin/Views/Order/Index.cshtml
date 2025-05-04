@@ -1,0 +1,271 @@
+﻿@model IEnumerable<MEGATECH.Models.EF.HoaDon>
+
+@{
+    ViewBag.Title = "Danh mục đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<style>
+    .custom-textbox {
+        height: 50px;
+        border: 2px solid #0094ff
+    }
+</style>
+
+<!-- Main content -->
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Danh sách các đơn hàng </h4>
+                          <h4 class="page-title">Quyền thu ngân mới được duyệt đơn</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Order")">Danh mục đơn hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card-tools">
+                                <a href="/lap-hoa-don" class="btn btn-rounded btn-primary">Thêm mới hoá đơn</a>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            @using (Html.BeginForm("Index", "Order", FormMethod.Get, new { }))
+                            {
+                                <div class="input-group input-group-sm">
+
+                                    <input type="text" name="Searchtext" class="form-control custom-textbox" placeholder="Nhập thông tin đơn hàng bạn muốn tìm kiếm">
+                                    <span class="input-group-append">
+                                        <button type="submit" class="btn btn-info btn-flat">Tìm kiếm</button>
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card-tools text-right">
+                                <a href="#" class="btn btn-rounded btn-success" id="export">
+                                    <i class="fas fa-file-excel" style="font-size: 15px;"></i> Xuất file Excel
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="message-container">
+                        @*Hiển thị dòng thông báo*@
+                        @Html.Partial("Message")
+                    </div>
+                    <div class="table-responsive">
+                        <table id="multi-filter-select" class="display table table-striped table-hover table-bordered tableHoaDon">
+                            <thead>
+                                <tr class="text-center">
+
+                                    <th>#</th>
+                                    <th>Mã đơn hàng</th>
+                                    <th>Thời gian lập</th>
+                                    <th>Mã khách hàng</th>
+                                    <th>Tên khách hàng</th>
+                                    <th>Tổng đơn hàng</th>
+                                    <th>Phương thức</th>
+                                    <th>Trạng thái</th>
+                                    <th>Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null && Model.Any())
+                                {
+                                    var i = 1;
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+
+                                            <td class="text-center">@i</td>
+                                            <td class="text-center">@item.MaHoaDon</td>
+                                            <td class="text-center">@item.CreatedDate.ToString("dd'/'MM'/'yyyy")</td>
+                                            <td class="text-center">@item.ID_KhachHang</td>
+                                            <td class="text-center">@item.TenKhachHang</td>
+                                            <td class="text-center">@MEGATECH.Common.Common.FormatNumber(item.ChiTietHoaDons.Sum(x => x.SoLuong * x.GiaBan), 0) VNĐ</td>
+                                            <td class="text-center">
+                                                @if (item.PhuongThucThanhToan == 1)
+                                                {
+                                                    <span>COD</span>
+                                                }
+                                                else if (item.PhuongThucThanhToan == 2)
+                                                {
+                                                    <span>Chuyển khoản</span>
+                                                }
+                                                else if (item.PhuongThucThanhToan == 3)
+                                                {
+                                                    <span>Mua trực tiếp</span>
+                                                }
+                                            </td>
+                                            <td class="text-center">
+                                                @switch (item.TrangThai)
+                                                {
+                                                    case 1:
+                                                        <span>Chờ thanh toán</span>
+                                                        break;
+                                                    case 2:
+                                                        <span>Đã thanh toán</span>
+                                                        break;
+                                                    case 3:
+                                                        <span>Đã huỷ</span>
+                                                        break;
+                                                    default:
+                                                        <span>Không xác định</span>
+                                                        break;
+                                                }
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="/admin/order/Detail/@item.MaHoaDon" class="btn btn-xs btn-warning text-white"><i class="fa-solid fa-circle-info"></i></a>
+                                                <a href="#" class="btn btn-xs btn-primary btnCapNhat" data-id="@item.MaHoaDon"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            </td>
+                                        </tr>
+                                        i++;
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->
+
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Cập nhật trạng thái</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="txtOrderId" value="0" />
+                <div class="form-group">
+                    <label>Trạng thái</label>
+                    <select class="form-control" id="ddTrangThai">
+                        <option value="1">Chờ thanh toán</option>
+                        <option value="2">Đã thanh toán</option>
+                        <option value="3">Đã huỷ</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" id="btnLuu">Lưu</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+@section scripts{
+
+    <script src="~/Content/export/xlsx.full.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('#export').click(function () {
+                // Clone the table to prevent modification of the original table
+                var tableClone = $('.tableHoaDon').clone();
+
+                // Remove the "Chức năng" column from the cloned table
+                tableClone.find('th:nth-child(10), td:nth-child(10)').remove();
+
+                // Create a workbook and add a worksheet
+                var wb = XLSX.utils.book_new();
+                var ws = XLSX.utils.table_to_sheet(tableClone[0]);
+
+                // Adjust column widths
+                var colWidths = [];
+                tableClone.find('tr').eq(0).find('th').each(function () {
+                    colWidths.push($(this).width() / 8); // Divide by 8 to approximate width adjustment for Excel
+                });
+                ws['!cols'] = colWidths.map(function (width) { return { width: width }; });
+                // Add worksheet to workbook
+                XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+                // Save workbook as Excel file
+                XLSX.writeFile(wb, 'Danh sách đơn hàng.xlsx');
+            });
+
+            $('body').on('change', '#SelectAll', function () {
+                var checkStatus = this.checked;
+                var checkbox = $(this).parents('.card-body').find('tr td input:checkbox');
+                checkbox.each(function () {
+                    this.checked = checkStatus;
+                    if (this.checked) {
+                        checkbox.attr('selected', 'checked');
+                    } else {
+                        checkbox.attr('selected', '');
+                    }
+                });
+            });
+
+            $('body').on('click', '.btnCapNhat', function () {
+                var id = $(this).data("id");
+                var trangThai = $(this).closest('tr').find('td:eq(7)').text().trim(); // Lấy trạng thái từ cột thứ 7 trong hàng đó
+
+                if (trangThai === 'Đã thanh toán') {
+                    alert('Hoá đơn đã thanh toán không được chỉnh sửa.');
+                } else {
+                    $('#txtOrderId').val(id);
+                    $('#modal-default').modal('show');
+                }
+            });
+
+            $('body').on('click', '#btnLuu', function () {
+                    var id = $('#txtOrderId').val();
+                    var tt = $('#ddTrangThai').val();
+                    $.ajax({
+                        url: '@Url.Action("UpdateTT", "Order")',
+                        type: 'POST',
+                        data: { id: id, trangthai: tt },
+                        success: function (res) {
+                            if (res.Success) {
+                                location.reload();
+                            }
+                        },
+                    });
+                });
+            // Hàm để ẩn thông báo sau 5 giây
+            function hideMessage() {
+                $('.message-container').fadeOut(); // Ẩn thông báo
+            }
+
+            // Nếu có thông báo, thiết lập timeout để tự động ẩn sau 5 giây
+            if ($('.message-container').length) {
+                setTimeout(hideMessage, 5000); // 5000 milliseconds = 5 seconds
+            }
+        });
+
+    </script>
+}

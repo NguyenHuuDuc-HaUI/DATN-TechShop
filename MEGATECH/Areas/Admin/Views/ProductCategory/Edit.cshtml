@@ -1,0 +1,143 @@
+﻿@model MEGATECH.Models.EF.ProductCategory
+
+@{
+    ViewBag.Title = "Chỉnh sửa thông tin loại sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Chỉnh sửa danh mục loại sản phẩm: @Model.Title</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "ProductCategory")">Danh sách loại sản phẩm</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Chỉnh sửa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        @using (Html.BeginForm("Edit", "ProductCategory", FormMethod.Post, new { }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(x => x.MaLoaiSanPham)
+                            @Html.HiddenFor(x => x.Status)
+                            @Html.HiddenFor(x => x.CreatedBy)
+                            @Html.HiddenFor(x => x.CreatedDate)
+                            <!-- your steps content here -->
+                            <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Tên loại sản phẩm <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @placeholder = "Nhập tên loại sản phẩm" })
+                                            @Html.ValidationMessageFor(x => x.Title, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Alias <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.Alias, new { @class = "form-control", @placeholder = "Nhập Alias" })
+                                            @Html.ValidationMessageFor(x => x.Alias, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group form-group-default">
+                                            <label>Mô tả</label>
+                                            @Html.TextBoxFor(x => x.MoTa, new { @class = "form-control", @placeholder = "Nhập mô tả" })
+                                            @Html.ValidationMessageFor(x => x.MoTa, null, new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group form-group-default">
+                                            <label>Hình ảnh loại sản phẩm</label>
+                                            <div class="input-group">
+                                                <div class="custom-file">
+                                                    @Html.TextBoxFor(x => x.Image, new { @id = "txtImage", @class = "form-control", @readonly = "readonly" })
+                                                </div>
+                                                <div class="input-group-append col-md-2">
+                                                    <input type="button" value="Tải ảnh" onclick="BrowseServer('txtImage');" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Title</label>
+                                            @Html.TextAreaFor(x => x.SeoTitle, new { @class = "form-control", @placeholder = "Nhập Seo Title" })
+                                            @Html.ValidationMessageFor(x => x.SeoTitle, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Description</label>
+                                            @Html.TextAreaFor(x => x.SeoDescription, new { @class = "form-control", @placeholder = "Nhập Seo Description" })
+                                            @Html.ValidationMessageFor(x => x.SeoDescription, null, new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Seo Keywords</label>
+                                            @Html.TextAreaFor(x => x.SeoKeywords, new { @class = "form-control", @placeholder = "Nhập Seo Keywords" })
+                                            @Html.ValidationMessageFor(x => x.SeoKeywords, null, new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <div class="custom-control custom-checkbox">
+                                            @Html.CheckBoxFor(x => x.IsActive, new { @class = "custom-control-input", @id = "customCheckbox" })
+                                            <label for="customCheckbox" class="custom-control-label text-info font-weight-bold">Hiển thị Menu này trên trang chủ không?</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary">Chỉnh sửa</button>
+                                    <a href="@Url.Action("Index", "ProductCategory")" class="btn btn-danger">Quay lại</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section  scripts{
+
+
+    <script src="~/Scripts/jsConvert.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace('txtDetail', {
+                customConfig: '/content/ckeditor/config.js',
+                extraAllowedContent: 'span',
+            });
+        });
+        function BrowseServer(field) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                document.getElementById(field).value = fileUrl;
+            };
+            finder.popup();
+        }
+    </script>
+}

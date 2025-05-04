@@ -1,0 +1,196 @@
+﻿@model MEGATECH.Models.EF.NhanVien
+@{
+    ViewBag.Title = "Tạo mới nhân viên";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/datepicker/jquery.datetimepicker.min.css" rel="stylesheet" />
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Thêm mới nhân viên</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "NhanVien")">Danh sách nhân viên</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-body">
+                        @using (Html.BeginForm("Create", "NhanVien", FormMethod.Post, new { }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            <!-- your steps content here -->
+                            <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="text-center m-3" style="font-weight: bold;">THÔNG TIN NHÂN VIÊN</h2>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4 class="m-3" style="font-weight: bold;">THÔNG TIN CHUNG</h4>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Họ tên nhân viên <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.FullName, new { @class = "form-control", @placeholder = "Nhập họ tên nhân viên" })
+                                            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group form-group-default">
+                                            <label>Ngày sinh <span class="text-danger">* Nhân viên phải có độ tuổi từ 18 đến 40.</span></label>
+
+                                            @Html.TextBoxFor(x => x.NgaySinh, new { @class = "form-control picker", @autocomplete = "off", @placeholder = "Nhập ngày sinh nhân viên" })
+                                            @Html.ValidationMessageFor(x => x.NgaySinh, "", new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-group form-group-default">
+                                            <label>Căn cước công dân 9 số <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.CCCD, new { @class = "form-control", @placeholder = "Nhập CMND/CCCD" })
+                                            @Html.ValidationMessageFor(x => x.CCCD, "", new { @class = "text-danger" })
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default" style="height: 200px;">
+                                            <label>Hình ảnh nhân viên</label>
+                                            <div class="input-group mt-5">
+                                                <div class="custom-file">
+                                                    @Html.TextBoxFor(x => x.Image, new { @id = "txtImage", @class = "form-control", @style = "text-align: center;", @readonly = "readonly" })
+                                                </div>
+
+                                            </div>
+                                            <div class="input-group-append justify-content-center mt-4">
+                                                <input type="button" value="Tải ảnh" onclick="BrowseServer('txtImage');" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Giới tính <span class="text-danger">*</span></label>
+                                            @Html.DropDownListFor(model => model.GioiTinh, (SelectList)ViewBag.Gender, "-- Chọn giới tính --", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(x => x.GioiTinh, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Địa chỉ <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.DiaChi, new { @class = "form-control", @placeholder = "Nhập địa chỉ nhân viên" })
+                                            @Html.ValidationMessageFor(x => x.DiaChi, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Số điện thoại <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.SoDienThoai, new { @class = "form-control", @placeholder = "Nhập số điện thoại nhân viên" })
+                                            @Html.ValidationMessageFor(x => x.SoDienThoai, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Email <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "Nhập Email nhân viên" })
+                                            @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <h4 class="m-3" style="font-weight: bold;">THÔNG TIN CHỨC VỤ</h4>
+                                        <div class="form-group form-group-default">
+                                            <label class="mb-2">Chức vụ</label>
+                                            @Html.DropDownListFor(x => x.ID_ChucVu, ViewBag.ChucVu as SelectList, "-- Chọn chức vụ --", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(x => x.ID_ChucVu, null, new { @class = "text-danger" })
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <h4 class="m-3" style="font-weight: bold;">THÔNG TIN TÀI KHOẢN</h4>
+                                        <div class="form-group form-group-default">
+                                            <label>Tên đăng nhập <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.TenDangNhap, new { @class = "form-control", @placeholder = "Nhập tên đăng nhập nhân viên" })
+                                            @Html.ValidationMessageFor(x => x.TenDangNhap, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Mật khẩu <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.MatKhau, new { @class = "form-control", @placeholder = "Nhập mật khẩu tài khoản nhân viên" })
+                                            @Html.ValidationMessageFor(x => x.MatKhau, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group form-group-default">
+                                            <label>Tên hiển thị tài khoản <span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(x => x.TenHienThi, new { @class = "form-control", @placeholder = "Nhập tên hiển thị tài khoản nhân viên" })
+                                            @Html.ValidationMessageFor(x => x.TenHienThi, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-success btnCreate">Thêm mới</button>
+                                    <a href="@Url.Action("Index", "NhanVien")" class="btn btn-danger btnBack">Quay lại</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.content -->
+
+@section scripts{
+
+    <script src="~/Content/datepicker/jquery.datetimepicker.full.js"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select').select2()
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('.picker').datetimepicker({
+                autoclose: true,
+                timepicker: false,
+                datepicker: true,
+                format: "d/m/Y",
+                weeks: true
+            });
+
+            $.datetimepicker.setLocale('vi');
+
+            CKEDITOR.replace('txtDetail', {
+                customConfig: '/content/ckeditor/config.js',
+                extraAllowedContent: 'span',
+            });
+        });
+        function BrowseServer(field) {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                document.getElementById(field).value = fileUrl;
+            };
+            finder.popup();
+        }
+    </script>
+}

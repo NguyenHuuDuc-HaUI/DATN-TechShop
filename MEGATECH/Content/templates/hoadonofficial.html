@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoá Đơn Bán Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .invoice-container {
+            width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #000;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header p {
+            margin: 5px 0;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            background-color: #3498db;
+            color: #fff;
+            padding: 5px;
+            margin: 0;
+        }
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .section table, .section th, .section td {
+            border: 1px solid #000;
+        }
+        .section th, .section td {
+            padding: 10px;
+            text-align: left;
+        }
+        .no-border-rows td {
+            border-top: none;
+            border-bottom: none;
+        }
+        .products-table th, .products-table td {
+            text-align: center;
+        }
+        .products-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="header">
+            <h1>HOÁ ĐƠN BÁN HÀNG</h1>
+            <h4><i>Ngày</i> {{NgayDat}} <i>Tháng</i> {{ThangDat}} <i>Năm</i> {{NamDat}}</h4>
+            <h4>Số hóa đơn: <span style="color: #45B0E1; font-weight: bold;">{{MaDon}}</span></h4>
+        </div>
+        <div class="section">
+            <h2>CỬA HÀNG ĐỒ DÙNG CÔNG NGHỆ HOÀNG HÀ</h2>
+            <table class="no-border-rows">
+                <tr>
+                    <td>Địa chỉ: TP. Hà Nội</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại: 0933 428 095</td>
+                </tr>
+                <tr>
+                    <td>Website: <a href="https://hoanghamobile.com">https://hoanghamobile.com</a></td>
+                </tr>
+                <tr>
+                    <td>Số tài khoản: 099100000933</td>
+                </tr>
+                <tr>
+                    <td>Ngân hàng: TMCP Ngoại thương Việt Nam – Chi nhánh Hà Nội</td>
+                </tr>
+            </table>
+            <h2>THÔNG TIN KHÁCH HÀNG</h2>
+            <table class="no-border-rows">
+                <tr>
+                    <td>Họ tên khách hàng: {{TenKhachHang}}</td>
+                </tr>
+                <tr>
+                    <td>CMND/CCCD: {{CCCD}}</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ giao hàng: {{DiaChiNhanHang}}</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại: {{Phone}}</td>
+                </tr>
+                <tr>
+                    <td>Hình thức thanh toán: {{HinhThucThanhToan}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="section">
+            <table class="products-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; width: 40px;">
+                            STT
+                        </th>
+                        <th style="text-align:center;width: 150px;">
+                            Tên sản phẩm
+                        </th>
+                        <th style="text-align:center;width: 80px;">
+                            Số lượng
+                        </th>
+                        <th scope="col"
+                            style="text-align:center;">
+                            Đơn giá
+                        </th>
+                        <th scope="col"
+                            style="text-align:center;">
+                            Thành tiền
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{SanPham}}
+                    <!-- Add more rows as needed -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <div style="text-align: right; font-weight: bold;">Tổng tiền hàng</div>
+                        </td>
+                        <td><b>{{ThanhTien}} VNĐ</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <div style="text-align: right; font-weight: bold;">Tổng cộng tiền thanh toán</div>
+                        </td>
+                        <td><b>{{TongTien}} VNĐ</b></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <table style="width: 100%;">
+            <tr style="text-align: center;">
+                <td><b>Khách hàng</b></td>
+                <td><b>Người bán hàng</b></td>
+            </tr>
+            <tr style="text-align: center;">
+                <td><i>(Ký, họ tên)</i></td>
+                <td><i>(Ký, họ tên)</i></td>
+            </tr>
+            <tr style="text-align: center;">
+                <td style="padding-top: 20px; padding-bottom: 20px;"><i>{{TenKhachHang}}</i></td>
+                <td style="padding-top: 20px; padding-bottom: 20px;"><i>Hoang Ha Store</i></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

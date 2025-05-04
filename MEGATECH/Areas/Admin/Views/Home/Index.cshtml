@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "Trang chủ admin";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    a:hover {
+        text-decoration: none;
+    }
+
+    .card{
+        height: 250px;
+    }
+</style>
+
+@{
+    var user = (MEGATECH.Models.EF.NhanVien)HttpContext.Current.Session["user"];
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>MEGATECH</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">MEGATECH</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="content content-full">
+        <div class="page-inner">
+            <div class="page-header">
+                <div class="col-md-12">
+                    <h3 class="page-title text-center" style="font-weight: bold;">TRANG QUẢN TRỊ VIÊN HOÀNG HÀ</h3>
+                </div>
+            </div>
+            <div class="row row-projects">
+                @if (user.ChucVu.TenChucVu == "Quản lý")
+                {
+                    <div class="col-sm-4 col-lg-2">
+                        <div class="card">
+                            <div class="p-4">
+                                <a href="@Url.Action("Index", "NhanVien")">
+                                    <img class="card-img-top rounded" src="~/Images/nhanviern.png">
+                                    <h4 class="mb-1 fw-bold text-center mt-4">Quản lý Nhân viên</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-lg-2">
+                        <div class="card">
+                            <div class="p-4">
+                                <a href="@Url.Action("Index", "ChucVu")">
+                                    <img class="card-img-top rounded" src="~/Images/chucVU.png">
+                                    <h4 class="mb-1 fw-bold text-center mt-4">Chức vụ & Phân quyền</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col-sm-4 col-lg-2">
+                    <div class="card">
+                        <div class="p-4">
+                            <a href="@Url.Action("Index", "Order")">
+                                <img class="card-img-top rounded" src="~/Images/donhang.png">
+                                <h4 class="mb-1 fw-bold text-center mt-4">Quản lý Đơn hàng</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-2">
+                    <div class="card">
+                        <div class="p-4">
+                            <a href="@Url.Action("KhachHang", "Order")">
+                                <img class="card-img-top rounded" src="~/Images/khachHang.png">
+                                <h4 class="mb-1 fw-bold text-center mt-4">Quản lý Khách hàng</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @if (user.ChucVu.TenChucVu == "Quản lý")
+                {
+                    <div class="col-sm-4 col-lg-2">
+                        <div class="card">
+                            <div class="p-4">
+                                <a href="@Url.Action("Index", "Supplier")">
+                                    <img class="card-img-top rounded" src="~/Images/nhaCungCap.png">
+                                    <h4 class="mb-1 fw-bold text-center mt-4">Quản lý Nhà cung cấp</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-lg-2">
+                        <div class="card">
+                            <div class="p-4">
+                                <a href="@Url.Action("Index", "ProductCategory")">
+                                    <img class="card-img-top rounded" src="~/Images/categoryProduct.png">
+                                    <h4 class="mb-1 fw-bold text-center mt-4">Quản lý Loại sản phẩm</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                <div class="col-sm-4 col-lg-2">
+                    <div class="card">
+                        <div class="p-4">
+                            <a href="@Url.Action("Index", "Products")">
+                                <img class="card-img-top rounded" src="~/Images/product.png">
+                                <h4 class="mb-1 fw-bold text-center mt-4">Quản lý sản phẩm</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @if (user.ChucVu.TenChucVu == "Quản lý" || user.ChucVu.TenChucVu == "Kế toán")
+                {
+                    <div class="col-sm-4 col-lg-2">
+                        <div class="card">
+                            <div class="p-4">
+                                <a href="@Url.Action("Index", "Statistical")">
+                                    <img class="card-img-top rounded" src="~/Images/thongke.png">
+                                    <h4 class="mb-1 fw-bold text-center mt-4">Báo cáo thống kê</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- /.content -->

@@ -1,0 +1,214 @@
+﻿@model List<MEGATECH.Models.EF.HoaDon>
+@{
+    ViewBag.Title = "Tra cứu đơn hàng";
+
+}
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/styles/categories_responsive.css">
+<link rel="stylesheet" href="~/Public/css/bootstrap.min.css">
+
+<style>
+
+    a:hover{
+        text-decoration: none;
+    }
+
+    .dataTables_empty {
+        text-align: center;
+    }
+</style>
+
+<div class="container product_section_container">
+    <div class="row">
+        <div class="col product_section clearfix">
+
+            <!-- Breadcrumbs -->
+
+            <div class="breadcrumbs d-flex flex-row align-items-center">
+                <ul>
+                    <li><a href="/">Trang chủ</a></li>
+                    <li class="active"><a href="/tra-cuu-don-hang"><i class="fa fa-angle-right" aria-hidden="true"></i>Tra cứu đơn hàng</a></li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+
+            <div class="col-md-12">
+                <h2 class="text-center text-info">Tra Cứu Đơn Hàng</h2>
+
+                <div class="form-group">
+                    <label for="searchType">Chọn cách tra cứu:</label>
+                    <select class="form-control" id="searchType" name="searchType">
+                        <option value="maHoaDon">Tìm theo mã đơn hàng</option>
+                        <option value="tenKhachHang">Tìm theo Họ tên và Căn cước công dân</option>
+                    </select>
+                </div>
+                @using (Html.BeginForm("TimBangMa", "TraCuuDonHang", FormMethod.Post))
+                {
+                    <div id="searchByMaHoaDon" class="form-group">
+                        <label for="maHoaDon">Mã hoá đơn:</label>
+                        <input type="text" class="form-control" id="maHoaDon" name="maHoaDon" required />
+                        <button type="submit" class="btn btn-primary mt-3">Tìm kiếm</button>
+                    </div>
+                }
+                @using (Html.BeginForm("TimBangTen", "TraCuuDonHang", FormMethod.Post))
+                {
+                    <div id="searchByTenAndCCCD" class="form-group" style="display: none;">
+                        <label for="tenKhachHang">Họ tên khách hàng:</label>
+                        <input type="text" class="form-control" id="tenKhachHang" name="tenKhachHang" required />
+
+                        <label for="CCCD">Căn cước công dân:</label>
+                        <input type="text" class="form-control" id="CCCD" name="CCCD" required />
+
+                        <button type="submit" class="btn btn-primary mt-3">Tìm kiếm</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col product_section clearfix">
+            <div class="col-md-12">
+                <h2 class="text-center text-info mb-3">Danh Sách Đơn Hàng Tìm Thấy</h2>
+
+                <table id="multi-filter-select" class="display table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr class="text-center">
+                            <th><input type="checkbox" id="SelectAll" /></th>
+                            <th>#</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Thời gian lập</th>
+                            <th>Mã khách hàng</th>
+                            <th>Tên khách hàng</th>
+                            <th>Tổng đơn hàng</th>
+                            <th>Phương thức</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            var i = 1;
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center"><input type="checkbox" class="cbkItem" value="@item.MaHoaDon" /></td>
+                                    <td class="text-center">@i</td>
+                                    <td class="text-center">@item.MaHoaDon</td>
+                                    <td class="text-center">@item.CreatedDate.ToString("dd'/'MM'/'yyyy")</td>
+                                    <td class="text-center">@item.ID_KhachHang</td>
+                                    <td class="text-center">@item.TenKhachHang</td>
+                                    <td class="text-center">@MEGATECH.Common.Common.FormatNumber(item.ChiTietHoaDons.Sum(x => x.SoLuong * x.GiaBan), 0) VNĐ</td>
+                                    <td class="text-center">
+                                        @if (item.PhuongThucThanhToan == 1)
+                                        {
+                                            <span>COD</span>
+                                        }
+                                        else if (item.PhuongThucThanhToan == 2)
+                                        {
+                                            <span>Chuyển khoản</span>
+                                        }
+                                        else if (item.PhuongThucThanhToan == 3)
+                                        {
+                                            <span>Mua trực tiếp</span>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        @switch (item.TrangThai)
+                                        {
+                                            case 1:
+                                                <span>Chờ thanh toán</span>
+                                                break;
+                                            case 2:
+                                                <span>Đã thanh toán</span>
+                                                break;
+                                            case 3:
+                                                <span>Đã huỷ</span>
+                                                break;
+                                            default:
+                                                <span>Không xác định</span>
+                                                break;
+                                        }
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Public/js/plugin/datatables/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#basic-datatables').DataTable({
+            });
+
+            $('#multi-filter-select').DataTable({
+                searching: false,
+                lengthChange: false,
+                language: {
+                    emptyTable: "Không có dữ liệu nào trong bảng"
+                },
+                "pageLength": 5,
+                initComplete: function () {
+                    this.api().columns().every(function () {
+                        var column = this;
+                        var select = $('<select class="form-control"><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex(
+                                    $(this).val()
+                                );
+
+                                column
+                                    .search(val ? '^' + val + '$' : '', true, false)
+                                    .draw();
+                            });
+
+                        column.data().unique().sort().each(function (d, j) {
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                        });
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('#searchType').change(function () {
+                var searchType = $(this).val();
+                if (searchType === 'maHoaDon') {
+                    $('#searchByMaHoaDon').show();
+                    $('#searchByTenAndCCCD').hide();
+                } else if (searchType === 'tenKhachHang') {
+                    $('#searchByMaHoaDon').hide();
+                    $('#searchByTenAndCCCD').show();
+                }
+            });
+
+            $('form').submit(function () {
+                var searchType = $('#searchType').val();
+                if (searchType === 'tenKhachHang') {
+                    var tenKhachHang = $('#tenKhachHang').val();
+                    var CCCD = $('#CCCD').val();
+                    if (tenKhachHang === '' || CCCD === '') {
+                        alert('Vui lòng nhập đầy đủ thông tin tên khách hàng và CCCD.');
+                        return false; // Ngăn chặn việc gửi form
+                    }
+                }
+            });
+        });
+    </script>
+}

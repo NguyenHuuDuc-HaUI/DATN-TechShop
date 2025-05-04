@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="/Content/templates/hoadon_custom/main.css" rel="stylesheet" />
+    <script src='main.js'></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+</style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="/Content/templates/hoadon_custom/hoadon.png" class="original-size">
+        <div class="order-container">
+            <div class="order-title">Đơn Hàng Mới</div>
+            <div class="order-nd1">Ngày {{NgayDat}} Tháng {{ThangDat}} Năm {{NamDat}}</div>
+            <div class="order-nd2">Bạn vừa nhận được đơn hàng từ  {{TenKhachHang}}.</div>
+            <div class="order-nd3">[Đơn hàng #{{MaDon}}] ({{NgayDat}})</div>
+            <table class="table-before">
+                <tbody>
+                    {{SanPham}}
+                </tbody>
+            </table>
+            <table class="table-after">
+                <tbody>
+                    <tr>
+                        <td>Nguyên giá:</td>
+                        <td><span>{{ThanhTien}}&nbsp;<span>₫</span></span></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Tổng cộng:</td>
+                        <td><span>{{TongTien}}&nbsp;<span>₫</span></span></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            <div class="order-nd4">Thông tin khách hàng</div>
+            <div class="order-nd5">Tên: {{TenKhachHang}}</div>
+            <div class="order-nd6">Địa chỉ: {{DiaChiNhanHang}}</div>
+            <div class="order-nd7">Số điện thoại: {{Phone}}</div>
+            <div class="order-nd8">Email: {{Email}}</div>
+        </div>
+        
+        
+        
+    </div>
+    
+</body>
+</html>

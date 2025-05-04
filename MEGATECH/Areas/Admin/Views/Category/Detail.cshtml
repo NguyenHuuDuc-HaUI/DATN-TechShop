@@ -1,0 +1,132 @@
+﻿@model MEGATECH.Models.EF.Category
+@{
+    ViewBag.Title = "Chi tiết danh mục Menu";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Chi tiết danh mục Menu: @Model.Title</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Category")">Danh sách Menu</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Xem chi tiết</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Tên danh mục Menu</label>
+                                        <span class="form-control">@Model.Title</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Alias</label>
+                                        <span class="form-control">@Model.Alias</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Link</label>
+                                        @if (Model.Link == null)
+                                        {
+                                            <span class="form-control">Không có</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="form-control">@Model.Link</span>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Vị trí</label>
+                                        <span class="form-control">@Model.Position</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Seo Title</label>
+                                        @if (Model.SeoTitle != null)
+                                        {
+                                            <textarea class="form-control">@Model.SeoTitle</textarea>
+                                        }
+                                        else
+                                        {
+                                            <textarea class="form-control">Không có</textarea>
+                                        }
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Seo Description</label>
+                                        @if (Model.SeoTitle != null)
+                                        {
+                                            <textarea class="form-control">@Model.SeoDescription</textarea>
+                                        }
+                                        else
+                                        {
+                                            <textarea class="form-control">Không có</textarea>
+                                        }
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Seo Keywords</label>
+                                        @if (Model.SeoTitle != null)
+                                        {
+                                            <textarea class="form-control">@Model.SeoKeywords</textarea>
+                                        }
+                                        else
+                                        {
+                                            <textarea class="form-control">Không có</textarea>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    @if (Model.IsActive == true)
+                                    {
+                                        <div class="custom-control custom-checkbox">
+                                            @Html.CheckBoxFor(x => x.IsActive, new { @class = "custom-control-input", @checked = "checked" })
+                                            <label class="custom-control-label text-info font-weight-bold">Đang hiển thị trên trang chủ</label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="custom-control custom-checkbox">
+                                            @Html.CheckBoxFor(x => x.IsActive, new { @class = "custom-control-input" })
+                                            <label class="custom-control-label text-danger font-weight-bold">Không hiển thị trên trang chủ</label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <a href="/admin/category/edit/@Model.Title" class="btn btn-primary">Vào trang chỉnh sửa</a>
+                                <a href="@Url.Action("Index", "Category")" class="btn btn-danger">Quay lại</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

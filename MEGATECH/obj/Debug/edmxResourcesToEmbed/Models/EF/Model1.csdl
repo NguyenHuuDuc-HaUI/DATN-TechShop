@@ -1,0 +1,552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MEGATECHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MEGATECHEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_ThongKe" ReturnType="Collection(MEGATECHModel.sp_ThongKe_Result)" />
+    <EntitySet Name="tb_Account" EntityType="MEGATECHModel.tb_Account" />
+    <EntitySet Name="tb_Category" EntityType="MEGATECHModel.tb_Category" />
+    <EntitySet Name="tb_Contact" EntityType="MEGATECHModel.tb_Contact" />
+    <EntitySet Name="tb_ChiTietPhieuMuaHang" EntityType="MEGATECHModel.tb_ChiTietPhieuMuaHang" />
+    <EntitySet Name="tb_ChucNangQuyen" EntityType="MEGATECHModel.tb_ChucNangQuyen" />
+    <EntitySet Name="tb_ChucVu" EntityType="MEGATECHModel.tb_ChucVu" />
+    <EntitySet Name="tb_NhanVien" EntityType="MEGATECHModel.tb_NhanVien" />
+    <EntitySet Name="tb_Order" EntityType="MEGATECHModel.tb_Order" />
+    <EntitySet Name="tb_OrderDetail" EntityType="MEGATECHModel.tb_OrderDetail" />
+    <EntitySet Name="tb_Product" EntityType="MEGATECHModel.tb_Product" />
+    <EntitySet Name="tb_ProductCategory" EntityType="MEGATECHModel.tb_ProductCategory" />
+    <EntitySet Name="tb_ProductImage" EntityType="MEGATECHModel.tb_ProductImage" />
+    <EntitySet Name="tb_PhanQuyen" EntityType="MEGATECHModel.tb_PhanQuyen" />
+    <EntitySet Name="tb_PhieuMuaHang" EntityType="MEGATECHModel.tb_PhieuMuaHang" />
+    <EntitySet Name="tb_Suppliers" EntityType="MEGATECHModel.tb_Suppliers" />
+    <EntitySet Name="tb_SystemSetting" EntityType="MEGATECHModel.tb_SystemSetting" />
+    <EntitySet Name="tb_Wishlist" EntityType="MEGATECHModel.tb_Wishlist" />
+    <EntitySet Name="ThongKes" EntityType="MEGATECHModel.ThongKes" />
+    <AssociationSet Name="FK_tb_Account_tb_NhanVien" Association="MEGATECHModel.FK_tb_Account_tb_NhanVien">
+      <End Role="tb_NhanVien" EntitySet="tb_NhanVien" />
+      <End Role="tb_Account" EntitySet="tb_Account" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_NhanVien_tb_Account" Association="MEGATECHModel.FK_tb_NhanVien_tb_Account">
+      <End Role="tb_Account" EntitySet="tb_Account" />
+      <End Role="tb_NhanVien" EntitySet="tb_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_PhanQuyen_tb_Account" Association="MEGATECHModel.FK_tb_PhanQuyen_tb_Account">
+      <End Role="tb_Account" EntitySet="tb_Account" />
+      <End Role="tb_PhanQuyen" EntitySet="tb_PhanQuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietPhieuMuaHang_tb_Product" Association="MEGATECHModel.FK_ChiTietPhieuMuaHang_tb_Product">
+      <End Role="tb_Product" EntitySet="tb_Product" />
+      <End Role="tb_ChiTietPhieuMuaHang" EntitySet="tb_ChiTietPhieuMuaHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChiTietPhieuMuaHang_tb_PhieuMuaHang" Association="MEGATECHModel.FK_ChiTietPhieuMuaHang_tb_PhieuMuaHang">
+      <End Role="tb_PhieuMuaHang" EntitySet="tb_PhieuMuaHang" />
+      <End Role="tb_ChiTietPhieuMuaHang" EntitySet="tb_ChiTietPhieuMuaHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_PhanQuyen_tb_ChucNangQuyen" Association="MEGATECHModel.FK_tb_PhanQuyen_tb_ChucNangQuyen">
+      <End Role="tb_ChucNangQuyen" EntitySet="tb_ChucNangQuyen" />
+      <End Role="tb_PhanQuyen" EntitySet="tb_PhanQuyen" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_NhanVien_ChucVu" Association="MEGATECHModel.FK_tb_NhanVien_ChucVu">
+      <End Role="tb_ChucVu" EntitySet="tb_ChucVu" />
+      <End Role="tb_NhanVien" EntitySet="tb_NhanVien" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_OrderDetail_tb_Order" Association="MEGATECHModel.FK_tb_OrderDetail_tb_Order">
+      <End Role="tb_Order" EntitySet="tb_Order" />
+      <End Role="tb_OrderDetail" EntitySet="tb_OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_OrderDetail_tb_Product" Association="MEGATECHModel.FK_tb_OrderDetail_tb_Product">
+      <End Role="tb_Product" EntitySet="tb_Product" />
+      <End Role="tb_OrderDetail" EntitySet="tb_OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_tb_ProductImage_dbo_tb_Product_ProductId" Association="MEGATECHModel.FK_dbo_tb_ProductImage_dbo_tb_Product_ProductId">
+      <End Role="tb_Product" EntitySet="tb_Product" />
+      <End Role="tb_ProductImage" EntitySet="tb_ProductImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_tb_Wishlist_dbo_tb_Product_ProductId" Association="MEGATECHModel.FK_dbo_tb_Wishlist_dbo_tb_Product_ProductId">
+      <End Role="tb_Product" EntitySet="tb_Product" />
+      <End Role="tb_Wishlist" EntitySet="tb_Wishlist" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Product_tb_ProductCategory" Association="MEGATECHModel.FK_tb_Product_tb_ProductCategory">
+      <End Role="tb_ProductCategory" EntitySet="tb_ProductCategory" />
+      <End Role="tb_Product" EntitySet="tb_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Product_tb_Suppliers" Association="MEGATECHModel.FK_tb_Product_tb_Suppliers">
+      <End Role="tb_Suppliers" EntitySet="tb_Suppliers" />
+      <End Role="tb_Product" EntitySet="tb_Product" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_ThongKe_Result">
+    <Property Type="Int32" Name="HomNay" Nullable="true" />
+    <Property Type="Int64" Name="HomQua" Nullable="true" />
+    <Property Type="Int64" Name="TuanNay" Nullable="true" />
+    <Property Type="Int64" Name="TuanTruoc" Nullable="true" />
+    <Property Type="Int64" Name="ThangNay" Nullable="true" />
+    <Property Type="Int64" Name="ThangTruoc" Nullable="true" />
+    <Property Type="Int64" Name="TatCa" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tb_Account">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhau" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdNhanVien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenHienThi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="fk_Account_NhanVien" Relationship="MEGATECHModel.FK_tb_Account_tb_NhanVien" FromRole="tb_Account" ToRole="tb_NhanVien" />
+    <NavigationProperty Name="fk_NhanVien_Account" Relationship="MEGATECHModel.FK_tb_NhanVien_tb_Account" FromRole="tb_Account" ToRole="tb_NhanVien" />
+    <NavigationProperty Name="tb_PhanQuyen" Relationship="MEGATECHModel.FK_tb_PhanQuyen_tb_Account" FromRole="tb_Account" ToRole="tb_PhanQuyen" />
+  </EntityType>
+  <EntityType Name="tb_Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SeoTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SeoDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SeoKeywords" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Position" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Website" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_ChiTietPhieuMuaHang">
+    <Key>
+      <PropertyRef Name="MaPhieu" />
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaPhieu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaSanPham" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="DVT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HoTenNguoiGiao" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_Product" Relationship="MEGATECHModel.FK_ChiTietPhieuMuaHang_tb_Product" FromRole="tb_ChiTietPhieuMuaHang" ToRole="tb_Product" />
+    <NavigationProperty Name="tb_PhieuMuaHang" Relationship="MEGATECHModel.FK_ChiTietPhieuMuaHang_tb_PhieuMuaHang" FromRole="tb_ChiTietPhieuMuaHang" ToRole="tb_PhieuMuaHang" />
+  </EntityType>
+  <EntityType Name="tb_ChucNangQuyen">
+    <Key>
+      <PropertyRef Name="MaChucNang" />
+    </Key>
+    <Property Name="MaChucNang" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TenChucNang" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="NhomChucNang" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_PhanQuyen" Relationship="MEGATECHModel.FK_tb_PhanQuyen_tb_ChucNangQuyen" FromRole="tb_ChucNangQuyen" ToRole="tb_PhanQuyen" />
+  </EntityType>
+  <EntityType Name="tb_ChucVu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenChucVu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_NhanVien" Relationship="MEGATECHModel.FK_tb_NhanVien_ChucVu" FromRole="tb_ChucVu" ToRole="tb_NhanVien" />
+  </EntityType>
+  <EntityType Name="tb_NhanVien">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IdTenDangNhap" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Boolean" Nullable="false" />
+    <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdChucVu" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="fk_Account_NhanVien" Relationship="MEGATECHModel.FK_tb_Account_tb_NhanVien" FromRole="tb_NhanVien" ToRole="tb_Account" />
+    <NavigationProperty Name="fk_NhanVien_Account" Relationship="MEGATECHModel.FK_tb_NhanVien_tb_Account" FromRole="tb_NhanVien" ToRole="tb_Account" />
+    <NavigationProperty Name="tb_ChucVu" Relationship="MEGATECHModel.FK_tb_NhanVien_ChucVu" FromRole="tb_NhanVien" ToRole="tb_ChucVu" />
+  </EntityType>
+  <EntityType Name="tb_Order">
+    <Key>
+      <PropertyRef Name="MaHoaDon" />
+    </Key>
+    <Property Name="MaHoaDon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TotalAmount" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="TypePayment" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_OrderDetail" Relationship="MEGATECHModel.FK_tb_OrderDetail_tb_Order" FromRole="tb_Order" ToRole="tb_OrderDetail" />
+  </EntityType>
+  <EntityType Name="tb_OrderDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="DVT" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PriceSale" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="tb_Order" Relationship="MEGATECHModel.FK_tb_OrderDetail_tb_Order" FromRole="tb_OrderDetail" ToRole="tb_Order" />
+    <NavigationProperty Name="tb_Product" Relationship="MEGATECHModel.FK_tb_OrderDetail_tb_Product" FromRole="tb_OrderDetail" ToRole="tb_Product" />
+  </EntityType>
+  <EntityType Name="tb_Product">
+    <Key>
+      <PropertyRef Name="MaSanPham" />
+    </Key>
+    <Property Name="MaSanPham" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OriginalPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="PriceSale" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="ViewCount" Type="Int32" Nullable="false" />
+    <Property Name="IsHome" Type="Boolean" Nullable="false" />
+    <Property Name="IsSale" Type="Boolean" Nullable="false" />
+    <Property Name="IsNew" Type="Boolean" Nullable="false" />
+    <Property Name="IsHot" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="ProductCategoryId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SupplierId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SeoTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SeoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SeoKeywords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_ChiTietPhieuMuaHang" Relationship="MEGATECHModel.FK_ChiTietPhieuMuaHang_tb_Product" FromRole="tb_Product" ToRole="tb_ChiTietPhieuMuaHang" />
+    <NavigationProperty Name="tb_OrderDetail" Relationship="MEGATECHModel.FK_tb_OrderDetail_tb_Product" FromRole="tb_Product" ToRole="tb_OrderDetail" />
+    <NavigationProperty Name="tb_ProductImage" Relationship="MEGATECHModel.FK_dbo_tb_ProductImage_dbo_tb_Product_ProductId" FromRole="tb_Product" ToRole="tb_ProductImage" />
+    <NavigationProperty Name="tb_Wishlist" Relationship="MEGATECHModel.FK_dbo_tb_Wishlist_dbo_tb_Product_ProductId" FromRole="tb_Product" ToRole="tb_Wishlist" />
+    <NavigationProperty Name="tb_ProductCategory" Relationship="MEGATECHModel.FK_tb_Product_tb_ProductCategory" FromRole="tb_Product" ToRole="tb_ProductCategory" />
+    <NavigationProperty Name="tb_Suppliers" Relationship="MEGATECHModel.FK_tb_Product_tb_Suppliers" FromRole="tb_Product" ToRole="tb_Suppliers" />
+  </EntityType>
+  <EntityType Name="tb_ProductCategory">
+    <Key>
+      <PropertyRef Name="MaLoaiSanPham" />
+    </Key>
+    <Property Name="MaLoaiSanPham" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SeoTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SeoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SeoKeywords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_Product" Relationship="MEGATECHModel.FK_tb_Product_tb_ProductCategory" FromRole="tb_ProductCategory" ToRole="tb_Product" />
+  </EntityType>
+  <EntityType Name="tb_ProductImage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tb_Product" Relationship="MEGATECHModel.FK_dbo_tb_ProductImage_dbo_tb_Product_ProductId" FromRole="tb_ProductImage" ToRole="tb_Product" />
+  </EntityType>
+  <EntityType Name="tb_PhanQuyen">
+    <Key>
+      <PropertyRef Name="TenDangNhap" />
+      <PropertyRef Name="MaChucNang" />
+    </Key>
+    <Property Name="TenDangNhap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaChucNang" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_Account" Relationship="MEGATECHModel.FK_tb_PhanQuyen_tb_Account" FromRole="tb_PhanQuyen" ToRole="tb_Account" />
+    <NavigationProperty Name="tb_ChucNangQuyen" Relationship="MEGATECHModel.FK_tb_PhanQuyen_tb_ChucNangQuyen" FromRole="tb_PhanQuyen" ToRole="tb_ChucNangQuyen" />
+  </EntityType>
+  <EntityType Name="tb_PhieuMuaHang">
+    <Key>
+      <PropertyRef Name="MaPhieu" />
+    </Key>
+    <Property Name="MaPhieu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaSanPham" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="SupplierId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductCategoryId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_ChiTietPhieuMuaHang" Relationship="MEGATECHModel.FK_ChiTietPhieuMuaHang_tb_PhieuMuaHang" FromRole="tb_PhieuMuaHang" ToRole="tb_ChiTietPhieuMuaHang" />
+  </EntityType>
+  <EntityType Name="tb_Suppliers">
+    <Key>
+      <PropertyRef Name="MaNhaCungCap" />
+    </Key>
+    <Property Name="MaNhaCungCap" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SeoTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SeoDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SeoKeywords" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="Modifiedby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tb_Product" Relationship="MEGATECHModel.FK_tb_Product_tb_Suppliers" FromRole="tb_Suppliers" ToRole="tb_Product" />
+  </EntityType>
+  <EntityType Name="tb_SystemSetting">
+    <Key>
+      <PropertyRef Name="SettingKey" />
+    </Key>
+    <Property Name="SettingKey" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SettingValue" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+    <Property Name="SettingDescription" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tb_Wishlist">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tb_Product" Relationship="MEGATECHModel.FK_dbo_tb_Wishlist_dbo_tb_Product_ProductId" FromRole="tb_Wishlist" ToRole="tb_Product" />
+  </EntityType>
+  <EntityType Name="ThongKes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ThoiGian" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SoTruyCap" Type="Int64" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tb_Account_tb_NhanVien">
+    <End Type="MEGATECHModel.tb_NhanVien" Role="tb_NhanVien" Multiplicity="0..1" />
+    <End Type="MEGATECHModel.tb_Account" Role="tb_Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_NhanVien">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tb_Account">
+        <PropertyRef Name="IdNhanVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_NhanVien_tb_Account">
+    <End Type="MEGATECHModel.tb_Account" Role="tb_Account" Multiplicity="0..1" />
+    <End Type="MEGATECHModel.tb_NhanVien" Role="tb_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Account">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="tb_NhanVien">
+        <PropertyRef Name="IdTenDangNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_PhanQuyen_tb_Account">
+    <End Type="MEGATECHModel.tb_Account" Role="tb_Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_PhanQuyen" Role="tb_PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Account">
+        <PropertyRef Name="TenDangNhap" />
+      </Principal>
+      <Dependent Role="tb_PhanQuyen">
+        <PropertyRef Name="TenDangNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietPhieuMuaHang_tb_Product">
+    <End Type="MEGATECHModel.tb_Product" Role="tb_Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_ChiTietPhieuMuaHang" Role="tb_ChiTietPhieuMuaHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Product">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="tb_ChiTietPhieuMuaHang">
+        <PropertyRef Name="MaSanPham" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChiTietPhieuMuaHang_tb_PhieuMuaHang">
+    <End Type="MEGATECHModel.tb_PhieuMuaHang" Role="tb_PhieuMuaHang" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_ChiTietPhieuMuaHang" Role="tb_ChiTietPhieuMuaHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_PhieuMuaHang">
+        <PropertyRef Name="MaPhieu" />
+      </Principal>
+      <Dependent Role="tb_ChiTietPhieuMuaHang">
+        <PropertyRef Name="MaPhieu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_PhanQuyen_tb_ChucNangQuyen">
+    <End Type="MEGATECHModel.tb_ChucNangQuyen" Role="tb_ChucNangQuyen" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_PhanQuyen" Role="tb_PhanQuyen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_ChucNangQuyen">
+        <PropertyRef Name="MaChucNang" />
+      </Principal>
+      <Dependent Role="tb_PhanQuyen">
+        <PropertyRef Name="MaChucNang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_NhanVien_ChucVu">
+    <End Type="MEGATECHModel.tb_ChucVu" Role="tb_ChucVu" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_NhanVien" Role="tb_NhanVien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_ChucVu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tb_NhanVien">
+        <PropertyRef Name="IdChucVu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_OrderDetail_tb_Order">
+    <End Type="MEGATECHModel.tb_Order" Role="tb_Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_OrderDetail" Role="tb_OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Order">
+        <PropertyRef Name="MaHoaDon" />
+      </Principal>
+      <Dependent Role="tb_OrderDetail">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_OrderDetail_tb_Product">
+    <End Type="MEGATECHModel.tb_Product" Role="tb_Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_OrderDetail" Role="tb_OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Product">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="tb_OrderDetail">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_tb_ProductImage_dbo_tb_Product_ProductId">
+    <End Type="MEGATECHModel.tb_Product" Role="tb_Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_ProductImage" Role="tb_ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Product">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="tb_ProductImage">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_tb_Wishlist_dbo_tb_Product_ProductId">
+    <End Type="MEGATECHModel.tb_Product" Role="tb_Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_Wishlist" Role="tb_Wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Product">
+        <PropertyRef Name="MaSanPham" />
+      </Principal>
+      <Dependent Role="tb_Wishlist">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Product_tb_ProductCategory">
+    <End Type="MEGATECHModel.tb_ProductCategory" Role="tb_ProductCategory" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_Product" Role="tb_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_ProductCategory">
+        <PropertyRef Name="MaLoaiSanPham" />
+      </Principal>
+      <Dependent Role="tb_Product">
+        <PropertyRef Name="ProductCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Product_tb_Suppliers">
+    <End Type="MEGATECHModel.tb_Suppliers" Role="tb_Suppliers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="MEGATECHModel.tb_Product" Role="tb_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Suppliers">
+        <PropertyRef Name="MaNhaCungCap" />
+      </Principal>
+      <Dependent Role="tb_Product">
+        <PropertyRef Name="SupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

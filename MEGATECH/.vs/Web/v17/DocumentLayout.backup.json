@@ -1,0 +1,908 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Code_DoAn\\DATN\\MEGATECH\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|e:\\code_doan\\datn\\megatech\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|e:\\code_doan\\datn\\megatech\\controllers\\shoppingcartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:controllers\\shoppingcartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\menu\\_menuproductcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\menu\\_menuproductcategory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\menu\\_menuleft.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\menu\\_menuleft.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\content\\common\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:content\\common\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\content\\templates\\hoadonofficial.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:content\\templates\\hoadonofficial.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\content\\templates\\hoadon.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:content\\templates\\hoadon.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\contact\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\menu\\_menutop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\menu\\_menutop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\menu\\_menuarrivals.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\menu\\_menuarrivals.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\menu\\_menusupplier.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\menu\\_menusupplier.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\thongke.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\common\\filter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\common\\filter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\controllers\\timkiemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:controllers\\timkiemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\controllers\\tracuudonhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:controllers\\tracuudonhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\chitiethoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\productcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\productcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\phanquyen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\nhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\nhacungcap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\khachhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\hoadon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\controllers\\productcategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\controllers\\productcategorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\models\\ef\\chucvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:models\\ef\\chucvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\chucvu\\phanquyen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\chucvu\\phanquyen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\controllers\\chucvucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\controllers\\chucvucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\order\\chitietkhachhang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\order\\chitietkhachhang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\order\\khachhang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\order\\khachhang.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\products\\partial_productshot.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\products\\partial_productshot.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\products\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\products\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\views\\home\\refresh.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:views\\home\\refresh.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:app_start\\filterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\nhanvien\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\nhanvien\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\nhanvien\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\nhanvien\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\chucvu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\chucvu\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\areas\\admin\\views\\chucvu\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:areas\\admin\\views\\chucvu\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|E:\\Code_DoAn\\DATN\\MEGATECH\\content\\assets\\styles\\categories_styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{8F3CF41E-D19D-4D91-AF21-190580B4A190}|Web.csproj|solutionrelative:content\\assets\\styles\\categories_styles.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-05-04T09:56:28.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_MenuLeft.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuLeft.cshtml",
+              "RelativeDocumentMoniker": "Views\\Menu\\_MenuLeft.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuLeft.cshtml",
+              "RelativeToolTip": "Views\\Menu\\_MenuLeft.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-01T17:36:22.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ShoppingCartController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Controllers\\ShoppingCartController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ShoppingCartController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Controllers\\ShoppingCartController.cs",
+              "RelativeToolTip": "Controllers\\ShoppingCartController.cs",
+              "ViewState": "AgIAALwBAAAAAAAAAAAcwNoBAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T02:38:58.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\RouteConfig.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "App_Start\\RouteConfig.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAQwFAAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-21T16:40:40.815Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Contact\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Contact\\Index.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Contact\\Index.cshtml",
+              "RelativeToolTip": "Views\\Contact\\Index.cshtml",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-21T16:42:51.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAANQBAAAAAAAAAAAuwOEBAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T15:25:35.289Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T08:54:57.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_MenuProductCategory.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuProductCategory.cshtml",
+              "RelativeDocumentMoniker": "Views\\Menu\\_MenuProductCategory.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuProductCategory.cshtml",
+              "RelativeToolTip": "Views\\Menu\\_MenuProductCategory.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACoAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-12T04:16:49.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Products\\Index.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "Views\\Products\\Index.cshtml",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEcAAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-17T02:40:20.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "hoadon.html",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Content\\templates\\hoadon.html",
+              "RelativeDocumentMoniker": "Content\\templates\\hoadon.html",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Content\\templates\\hoadon.html",
+              "RelativeToolTip": "Content\\templates\\hoadon.html",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAC8AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-21T14:46:06.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "hoadonofficial.html",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Content\\templates\\hoadonofficial.html",
+              "RelativeDocumentMoniker": "Content\\templates\\hoadonofficial.html",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Content\\templates\\hoadonofficial.html",
+              "RelativeToolTip": "Content\\templates\\hoadonofficial.html",
+              "ViewState": "AgIAAJAAAAAAAAAAAAAAAEwAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-21T14:44:20.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Common.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Content\\Common\\Common.cs",
+              "RelativeDocumentMoniker": "Content\\Common\\Common.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Content\\Common\\Common.cs",
+              "RelativeToolTip": "Content\\Common\\Common.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAUwDkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T17:22:22.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_MenuTop.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuTop.cshtml",
+              "RelativeDocumentMoniker": "Views\\Menu\\_MenuTop.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuTop.cshtml",
+              "RelativeToolTip": "Views\\Menu\\_MenuTop.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-17T03:13:19.763Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Products\\Index.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAHQAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-25T15:24:39.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-21T16:39:12.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_MenuArrivals.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuArrivals.cshtml",
+              "RelativeDocumentMoniker": "Views\\Menu\\_MenuArrivals.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuArrivals.cshtml",
+              "RelativeToolTip": "Views\\Menu\\_MenuArrivals.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-12T04:18:31.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_MenuSupplier.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuSupplier.cshtml",
+              "RelativeDocumentMoniker": "Views\\Menu\\_MenuSupplier.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Menu\\_MenuSupplier.cshtml",
+              "RelativeToolTip": "Views\\Menu\\_MenuSupplier.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-17T03:13:27.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Filter.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\Common\\Filter.cs",
+              "RelativeDocumentMoniker": "Models\\Common\\Filter.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\Common\\Filter.cs",
+              "RelativeToolTip": "Models\\Common\\Filter.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T02:38:33.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ThongKe.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\ThongKe.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\ThongKe.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\ThongKe.cs",
+              "RelativeToolTip": "Models\\EF\\ThongKe.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T02:38:26.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TraCuuDonHangController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Controllers\\TraCuuDonHangController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TraCuuDonHangController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Controllers\\TraCuuDonHangController.cs",
+              "RelativeToolTip": "Controllers\\TraCuuDonHangController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T02:39:45.272Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TimKiemController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Controllers\\TimKiemController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TimKiemController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Controllers\\TimKiemController.cs",
+              "RelativeToolTip": "Controllers\\TimKiemController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T02:39:51.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ProductCategory.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\ProductCategory.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\ProductCategory.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\ProductCategory.cs",
+              "RelativeToolTip": "Models\\EF\\ProductCategory.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:38:59.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Product.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\Product.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\Product.cs",
+              "RelativeToolTip": "Models\\EF\\Product.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:38:58.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "NhaCungCap.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\NhaCungCap.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\NhaCungCap.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\NhaCungCap.cs",
+              "RelativeToolTip": "Models\\EF\\NhaCungCap.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:38:56.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ChiTietHoaDon.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\ChiTietHoaDon.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\ChiTietHoaDon.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\ChiTietHoaDon.cs",
+              "RelativeToolTip": "Models\\EF\\ChiTietHoaDon.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:39:03.5Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "HoaDon.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\HoaDon.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\HoaDon.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\HoaDon.cs",
+              "RelativeToolTip": "Models\\EF\\HoaDon.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:33:54.025Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "KhachHang.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\KhachHang.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\KhachHang.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\KhachHang.cs",
+              "RelativeToolTip": "Models\\EF\\KhachHang.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:38:51.19Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "NhanVien.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\NhanVien.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\NhanVien.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\NhanVien.cs",
+              "RelativeToolTip": "Models\\EF\\NhanVien.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T05:54:07.655Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Category.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\Category.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\Category.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\Category.cs",
+              "RelativeToolTip": "Models\\EF\\Category.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:39:09.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Home\\Login.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-14T18:14:28.72Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "PhanQuyen.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\PhanQuyen.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\PhanQuyen.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\PhanQuyen.cs",
+              "RelativeToolTip": "Models\\EF\\PhanQuyen.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T17:38:57.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "SupplierController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\SupplierController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\SupplierController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\SupplierController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\SupplierController.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T18:17:31.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ProductCategoryController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\ProductCategoryController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ProductCategoryController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\ProductCategoryController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\ProductCategoryController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T05:58:15.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ChucVuController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\ChucVuController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\ChucVuController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\ChucVuController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\ChucVuController.cs",
+              "ViewState": "AgIAAOkAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T05:05:38.124Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ChucVu.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\ChucVu.cs",
+              "RelativeDocumentMoniker": "Models\\EF\\ChucVu.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Models\\EF\\ChucVu.cs",
+              "RelativeToolTip": "Models\\EF\\ChucVu.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-15T05:50:50.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "ChiTietKhachHang.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Order\\ChiTietKhachHang.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Order\\ChiTietKhachHang.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Order\\ChiTietKhachHang.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Order\\ChiTietKhachHang.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-14T17:44:46.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "PhanQuyen.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\ChucVu\\PhanQuyen.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ChucVu\\PhanQuyen.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\ChucVu\\PhanQuyen.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ChucVu\\PhanQuyen.cshtml",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T09:43:53.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "KhachHang.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Order\\KhachHang.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Order\\KhachHang.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Order\\KhachHang.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Order\\KhachHang.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-14T17:42:12.444Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\OrderController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAkwGYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T18:04:57.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAACsAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-11T16:17:33.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T18:02:26.828Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Products\\Detail.cshtml",
+              "RelativeDocumentMoniker": "Views\\Products\\Detail.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Products\\Detail.cshtml",
+              "RelativeToolTip": "Views\\Products\\Detail.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAADcAAAB0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-13T10:28:18.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Partial_ProductsHot.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Products\\Partial_ProductsHot.cshtml",
+              "RelativeDocumentMoniker": "Views\\Products\\Partial_ProductsHot.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Products\\Partial_ProductsHot.cshtml",
+              "RelativeToolTip": "Views\\Products\\Partial_ProductsHot.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFMAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-13T10:22:41.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "NhanVienController.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\NhanVienController.cs",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Controllers\\NhanVienController.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Controllers\\NhanVienController.cs",
+              "RelativeToolTip": "Areas\\Admin\\Controllers\\NhanVienController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAEwB4AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T04:59:45.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Order\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\Order\\Index.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\Order\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\Order\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-13T18:05:16.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Refresh.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Home\\Refresh.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Refresh.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Views\\Home\\Refresh.cshtml",
+              "RelativeToolTip": "Views\\Home\\Refresh.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-12T04:15:29.02Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\NhanVien\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\NhanVien\\Index.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\NhanVien\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\NhanVien\\Index.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAHwAAACgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T09:45:39.582Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\NhanVien\\Create.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\NhanVien\\Create.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\NhanVien\\Create.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\NhanVien\\Create.cshtml",
+              "ViewState": "AgIAAKEAAAAAAAAAAADgv78AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T09:45:23.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "FilterConfig.cs",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\App_Start\\FilterConfig.cs",
+              "RelativeDocumentMoniker": "App_Start\\FilterConfig.cs",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\App_Start\\FilterConfig.cs",
+              "RelativeToolTip": "App_Start\\FilterConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T04:11:35.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\ChucVu\\Create.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ChucVu\\Create.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\ChucVu\\Create.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ChucVu\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T09:44:06.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\ChucVu\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Admin\\Views\\ChucVu\\Index.cshtml",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Areas\\Admin\\Views\\ChucVu\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Admin\\Views\\ChucVu\\Index.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T09:45:00.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "categories_styles.css",
+              "DocumentMoniker": "E:\\Code_DoAn\\DATN\\MEGATECH\\Content\\assets\\styles\\categories_styles.css",
+              "RelativeDocumentMoniker": "Content\\assets\\styles\\categories_styles.css",
+              "ToolTip": "E:\\Code_DoAn\\DATN\\MEGATECH\\Content\\assets\\styles\\categories_styles.css",
+              "RelativeToolTip": "Content\\assets\\styles\\categories_styles.css",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAAG4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-07T08:58:59.444Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1175,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1099,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1099,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+﻿@model IEnumerable<MEGATECH.Models.EF.HoaDon>
+@{
+    ViewBag.Title = "Thống kê hình thức mua";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var i_online = 1;
+    var i_offline = 1;
+}
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Danh sách các hoá đơn vào @ViewBag.Date</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Statistical")">Thống kê</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                Danh sách các hoá đơn vào tháng @ViewBag.Date
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="font-weight: bold;">DANH SÁCH HOÁ ĐƠN THANH TOÁN BẰNG HÌNH THỨC COD/CHUYỂN KHOẢN</h3>
+                </div>
+                <div class="card-body">
+                    <table class="display table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr class="text-center">
+                                <th>#</th>
+                                <th>Mã đơn hàng</th>
+                                <th>Thời gian lập</th>
+                                <th>Mã khách hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Tổng đơn hàng</th>
+                                <th>Phương thức</th>
+                                <th>Trạng thái</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var invoice in ViewBag.OnlineInvoices)
+                            {
+                                <tr class="text-center">
+                                    <td>@i_online</td>
+                                    <td>@invoice.MaHoaDon</td>
+                                    <td>@invoice.CreatedDate.ToString("dd'/'MM'/'yyyy")</td>
+                                    <td>@invoice.ID_KhachHang</td>
+                                    <td>@invoice.TenKhachHang</td>
+                                    <td>@MEGATECH.Common.Common.FormatNumber(invoice.TongHoaDon, 0) VNĐ</td>
+                                    <td>
+                                        @if (@invoice.PhuongThucThanhToan == 1)
+                                        {
+                                            <span>COD</span>
+                                        }
+                                        else if (@invoice.PhuongThucThanhToan == 2)
+                                        {
+                                            <span>Chuyển khoản</span>
+                                        }
+                                        else if (@invoice.PhuongThucThanhToan == 3)
+                                        {
+                                            <span>Mua trực tiếp</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @switch (@invoice.TrangThai)
+                                        {
+                                            case 1:
+                                                <span>Chờ thanh toán</span>
+                                                break;
+                                            case 2:
+                                                <span>Đã thanh toán</span>
+                                                break;
+                                            case 3:
+                                                <span>Đã huỷ</span>
+                                                break;
+                                            default:
+                                                <span>Không xác định</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/admin/order/Detail/@invoice.MaHoaDon" class="btn btn-xs btn-warning text-white"><i class="fa-solid fa-circle-info"></i></a>
+                                    </td>
+                                </tr>
+                                i_online++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 style="font-weight: bold;">DANH SÁCH HOÁ ĐƠN THANH TOÁN BẰNG HÌNH THỨC MUA TRỰC TIẾP TẠI CỬA HÀNG</h3>
+                </div>
+                <div class="card-body">
+                    <table class="display table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr class="text-center">
+                                <th>#</th>
+                                <th>Mã đơn hàng</th>
+                                <th>Thời gian lập</th>
+                                <th>Mã khách hàng</th>
+                                <th>Tên khách hàng</th>
+                                <th>Tổng đơn hàng</th>
+                                <th>Phương thức</th>
+                                <th>Trạng thái</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var invoice in ViewBag.OfflineInvoices)
+                            {
+                                <tr class="text-center">
+                                    <td>@i_offline</td>
+                                    <td>@invoice.MaHoaDon</td>
+                                    <td>@invoice.CreatedDate.ToString("dd'/'MM'/'yyyy")</td>
+                                    <td>@invoice.ID_KhachHang</td>
+                                    <td>@invoice.TenKhachHang</td>
+                                    <td>@MEGATECH.Common.Common.FormatNumber(invoice.TongHoaDon, 0) VNĐ</td>
+                                    <td>
+                                        @if (@invoice.PhuongThucThanhToan == 1)
+                                        {
+                                            <span>COD</span>
+                                        }
+                                        else if (@invoice.PhuongThucThanhToan == 2)
+                                        {
+                                            <span>Chuyển khoản</span>
+                                        }
+                                        else if (@invoice.PhuongThucThanhToan == 3)
+                                        {
+                                            <span>Mua trực tiếp</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @switch (@invoice.TrangThai)
+                                        {
+                                            case 1:
+                                                <span>Chờ thanh toán</span>
+                                                break;
+                                            case 2:
+                                                <span>Đã thanh toán</span>
+                                                break;
+                                            case 3:
+                                                <span>Đã huỷ</span>
+                                                break;
+                                            default:
+                                                <span>Không xác định</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/admin/order/Detail/@invoice.MaHoaDon" class="btn btn-xs btn-warning text-white"><i class="fa-solid fa-circle-info"></i></a>
+                                    </td>
+                                </tr>
+                                i_offline++;
+                            }
+                        </tbody>
+                    </table>
+                    <div class="form-group text-center">
+                        <a href="@Url.Action("Index", "Statistical")" class="btn btn-danger">Quay lại</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

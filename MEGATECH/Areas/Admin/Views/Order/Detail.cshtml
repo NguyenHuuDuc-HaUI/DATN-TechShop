@@ -1,0 +1,117 @@
+﻿@model MEGATECH.Models.EF.HoaDon
+@{
+    ViewBag.Title = "Chi tiết danh mục đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content">
+    <div class="page-inner">
+        <div class="page-header">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="page-title">Chi tiết danh mục đơn hàng: @Model.MaHoaDon</h4>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="@Url.Action("Index", "Home")">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="@Url.Action("Index", "Order")">Danh sách đơn hàng</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Xem chi tiết</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div id="logins-part" class="content active dstepper-block" role="tabpanel" aria-labelledby="logins-part-trigger">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Mã đơn hàng</label>
+                                        <span class="form-control">@Model.MaHoaDon</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Mã khách hàng</label>
+                                        <span class="form-control">@Model.ID_KhachHang</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Họ tên khách hàng</label>
+                                        <span class="form-control">@Model.TenKhachHang</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Số điện thoại khách hàng</label>
+                                        <span class="form-control">@Model.SoDienThoai</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Thành tiền</label>
+                                        <span class="form-control">@MEGATECH.Common.Common.FormatNumber(Model.ChiTietHoaDons.Sum(x => x.SoLuong * x.GiaBan), 0) đ</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Ngày tạo hoá đơn</label>
+                                        <span class="form-control">@Model.CreatedDate.ToString("dd'/'MM'/'yyyy")</span>
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Trạng thái</label>
+                                        @switch (Model.TrangThai)
+                                        {
+                                            case 1:
+                                                <span class="form-control">Chưa thanh toán</span>
+                                                break;
+                                            case 2:
+                                                <span class="form-control">Đã thanh toán</span>
+                                                break;
+                                            case 3:
+                                                <span class="form-control">Hoàn thành</span>
+                                                break;
+                                            case 4:
+                                                <span class="form-control">Đã huỷ</span>
+                                                break;
+                                            default:
+                                                <span class="form-control">Không xác định</span>
+                                                break;
+                                        }
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Email khách hàng</label>
+                                        <span class="form-control">@Model.Email</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <h2>Danh sách sản phẩm của đơn hàng</h2>
+                                </div>
+                                <div class="col-md-12">
+                                    @Html.Action("Partial_SanPham", "Order", new { id = Model.MaHoaDon })
+                                </div>
+                            </div>
+                            <div class="form-group text-center">
+                                <a href="@Url.Action("Index", "Order")" class="btn btn-danger">Quay lại</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
