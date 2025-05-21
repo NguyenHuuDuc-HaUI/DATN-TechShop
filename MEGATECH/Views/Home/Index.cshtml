@@ -17,6 +17,59 @@
     <link href="~/Content/assets/styles/responsive.css" rel="stylesheet" />
     <link href="~/Content/assets/styles/bootstrap4/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <style>
+        .chatbot-msg-user {
+            background: #007bff;
+            color: #fff;
+            border-radius: 15px 15px 0 15px;
+            padding: 8px 14px;
+            margin-bottom: 8px;
+            max-width: 80%;
+            align-self: flex-end;
+            margin-left: 20%;
+            word-break: break-word;
+        }
+
+        .chatbot-msg-bot {
+            background: #fff;
+            color: #222;
+            border-radius: 15px 15px 15px 0;
+            padding: 8px 14px;
+            margin-bottom: 8px;
+            max-width: 80%;
+            align-self: flex-start;
+            margin-right: 20%;
+            border: 1px solid #eee;
+            word-break: break-word;
+        }
+
+        #chatbot-messages {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chatbot-send {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 0;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+            #chatbot-send:hover {
+                background: #0056b3;
+            }
+
+        #chatbot-input {
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -164,6 +217,23 @@
         </footer>
     </div>
 
+    <!-- Chatbot Icon -->
+    <div id="chatbot-icon" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999; cursor: pointer;">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Chatbot" width="60" height="60" />
+    </div>
+
+    <!-- Chatbot Popup -->
+    <div id="chatbot-popup" style="display:none; position: fixed; bottom: 100px; right: 30px; width: 350px; height: 500px; background: #fff; border-radius: 10px; box-shadow: 0 0 10px #888; z-index: 10000; flex-direction: column; overflow: hidden;">
+        <div style="background: #007bff; color: #fff; padding: 10px; font-weight: bold; display: flex; justify-content: space-between; align-items: center;">
+            <span>Hoàng Hà AI</span>
+            <span id="close-chatbot" style="cursor:pointer;">&times;</span>
+        </div>
+        <div id="chatbot-messages" style="flex:1; padding: 10px; overflow-y: auto; height: 370px;"></div>
+        <div style="padding: 10px; border-top: 1px solid #eee;">
+            <input type="text" id="chatbot-input" style="width: 75%; padding: 5px;" placeholder="Nhập câu hỏi..." />
+            <button id="chatbot-send" style="width: 20%; padding: 5px;">Gửi</button>
+        </div>
+    </div>
 
     <script src="~/Content/assets/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="~/Content/assets/plugins/easing/easing.js"></script>
@@ -171,6 +241,56 @@
     <script src="~/css/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="~/Content/assets/js/jquery-3.2.1.min.js"></script>
+
+    <script>
+    // Hiện/ẩn chatbot popup
+    document.getElementById('chatbot-icon').onclick = function () {
+        document.getElementById('chatbot-popup').style.display = 'flex';
+    };
+    document.getElementById('close-chatbot').onclick = function () {
+        document.getElementById('chatbot-popup').style.display = 'none';
+    };
+
+    // Gửi tin nhắn
+    document.getElementById('chatbot-send').onclick = sendChatbotMessage;
+    document.getElementById('chatbot-input').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') sendChatbotMessage();
+    });
+
+    function appendMessage(sender, text) {
+        var messages = document.getElementById('chatbot-messages');
+        var msgDiv = document.createElement('div');
+        if (sender === 'Bạn') {
+            msgDiv.className = 'chatbot-msg-user';
+            msgDiv.innerText = text;
+        } else {
+            msgDiv.className = 'chatbot-msg-bot';
+            msgDiv.innerText = text;
+        }
+        messages.appendChild(msgDiv);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    function sendChatbotMessage() {
+        var input = document.getElementById('chatbot-input');
+        var message = input.value.trim();
+        if (!message) return;
+        appendMessage('Bạn', message);
+        input.value = '';
+        fetch('@Url.Action("SendMessage", "Home")', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message })
+        })
+        .then(response => response.json())
+        .then(data => {
+            appendMessage('Hoàng Hà Store', data.reply);
+        })
+        .catch(() => {
+            appendMessage('Hoàng Hà Store', 'Lỗi khi kết nối đến server.');
+        });
+    }
+    </script>
 </body>
 </html>
 
